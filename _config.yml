@@ -1,9 +1,9 @@
 # Site settings
-title: PHOTORAMA
+title: Plant Genetics Lab
 email: ""
-description: "Photo Journal"
+description: "Lu Lab at Institute of Genetics and Developmental Biology"
 url: "https://plantgeneticslab.github.io"
-baseurl: "/plantgeneticslab"
+baseurl: "/Homepage"
 facebook_username: ""
 twitter_username: ""
 instagram_username: ""
@@ -33,9 +33,9 @@ comments :
 
 # Internal nav
 nav:
-  - GALLERY: "https://plantgeneticslab.github.io/photorama/gallery/"  
-  - JOURNAL: "https://plantgeneticslab.github.io/photorama/journal/"
-  - ABOUT: "https://plantgeneticslab.github.io/photorama/about/"
+  - GALLERY: "https://plantgeneticslab.github.io/Homepage/gallery/"  
+  - JOURNAL: "https://plantgeneticslab.github.io/Homepage/journal/"
+  - ABOUT: "https://plantgeneticslab.github.io/Homepage/about/"
 
 # All translation keys
 translations:
