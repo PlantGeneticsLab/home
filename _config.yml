@@ -1,7 +1,7 @@
 # Site settings
 title: Plant Genetics Lab
-email: ""
-description: "Lu Lab at Institute of Genetics and Developmental Biology"
+email: "dr.lufei@gmail.com"
+description: "Lu Lab at Institute of Genetics and Developmental Biology, Chinese Academy of Sciences"
 url: "https://plantgeneticslab.github.io"
 baseurl: "/home"
 facebook_username: ""
@@ -15,7 +15,7 @@ share: true
 
 # Owner/author information
 owner:
-  name:   photorama
+  name:   Fei Lu
   avatar: avatar.png
   favicon: favicon.ico
   info: photography website template
