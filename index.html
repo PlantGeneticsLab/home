@@ -58,14 +58,16 @@ images:
 	<section id="content" role="main">
 		<div class="wrapper">
 
-    <div class="position-absolute" style="color:whitesmoke;">
+    <!-- WYSIWYG -->
+
+    <div class="position-absolute">
       
         <h2 class="big no-margin"><strong>{{ page.main-title }}</strong></h2>
         <br>
-        <h2 class="big no-margin"><strong><em>{{ page.subtitle }}</em></strong></h2> 
+        <h2 class="slightbig no-margin"><strong>{{ page.subtitle }}</strong></h2> 
         <br>
                      <div class="entry-summary">
-							<h3>{{ page.description }}</h3>
+							<h3><em>{{ page.description }}</em></h3>
 						</div><br />
 		</div>
 			
@@ -97,14 +99,7 @@ images:
 <div id="footer" role="contentinfo">
 		<ul class="soc-icons">
 
-                 {% if site.facebook_username %}
-			<li>
-   <a href="https://facebook.com/{{ site.facebook_username }}" style="
-color:#dddddd; target="_blank" title="Facebook">
-                       <i class="fa fa-facebook"></i>
-                     </span>
-</a></li>
-    {% endif %}
+                
  {% if site.twitter_username %}
 			<li>
    <a href="https://twitter.com/{{ site.twitter_username }}" style="
@@ -113,29 +108,7 @@ color:#dddddd; target="_blank" title="Twitter">
                      </span>
 </a></li>
     {% endif %}
-                {% if site.instagram_username %}
-			<li>
-   <a href="https://instagram.com/{{ site.instagram_username }}" style="
-color:#dddddd; target="_blank" title="Instagram">
-                       <i class="fa fa-instagram"></i>
-                     </span>
-</a></li>
-    {% endif %}
-                    {% if site.flickr_username %}
-						<li>
-   <a href="https://flickr.com/photos/{{ site.flickr_username }}" style="
-color:#dddddd; target="_blank" title="Flickr">
-              <i class="fa fa-flickr"></i>
-                     </span>
- </a></li>	
-     {% endif %}
-                    {% if site.deviantart_username %}
-			<li>
-   <a href="http://{{ site.deviantart_username }}.deviantart.com" style="
-color:#dddddd; target="_blank" title="DeviantArt">
-<i class="fa fa-deviantart"></i> </span>
-</a></li>	
-    {% endif %}
+                                
                     {% if site.github_username %}
                 <li>
    <a href="https://github.com/{{ site.github_username }}" style="

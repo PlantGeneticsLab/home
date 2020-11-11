@@ -16,7 +16,7 @@ body.fullscreen #content > .wrapper { padding: 0; }
 body.fullscreen ul.social-icons, body.fullscreen  #footer p { vertical-align: bottom; padding-bottom: 0; line-height: 1.1; }
 body.fullscreen ul.social-icons li a  { color: white; }
 
-body.fullscreen .position-absolute { color: #dddddd;  bottom: 0; left: 0; width: 100%; padding: 0 4.5%; /*-webkit-transform: translateY(-50%);
+body.fullscreen .position-absolute { color:whitesmoke;  bottom: 0; left: 0; width: 100%; padding: 0 4.5%; /*-webkit-transform: translateY(-50%);
 -moz-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%);*/ -webkit-transition: -webkit-transform 0.5s; transition: transform 0.5s; }
 
 /*galleries adapted*/
@@ -60,7 +60,8 @@ ul.aligncenter, .aligncenter ul, ol.aligncenter, .aligncenter ol { list-style-po
 .justifyright { text-align: right; }
 .hidden { display: none; }
 .big, big { font-size: 1.15em; line-height: 1.5; font-weight: 300; }
-h2.big { font-size: 240%; letter-spacing: .1em; }
+h2.big { font-size: 300%; letter-spacing: .1em; }
+h2.slightbig { font-size: 240%; letter-spacing: .1em; }
 .extrabig { font-size: 1.9em; line-height: 1.3; }
 .small, small { font-size: .85em; line-height: 1.5; }
 .extrasmall { font-size: .6em; }
