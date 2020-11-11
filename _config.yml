@@ -33,9 +33,9 @@ comments :
 
 # Internal nav
 nav:
-  - GALLERY: "https://plantgeneticslab.github.io/home/gallery/"  
-  - JOURNAL: "https://plantgeneticslab.github.io/home/journal/"
-  - ABOUT: "https://plantgeneticslab.github.io/home/about/"
+  - GALLERY: "http://127.0.0.1:4000/home/gallery/"  
+  - JOURNAL: "http://127.0.0.1:4000/home/journal/"
+  - ABOUT: "http://127.0.0.1:4000/home/about/"
 
 # All translation keys
 translations:
