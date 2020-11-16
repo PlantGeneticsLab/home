@@ -8,13 +8,36 @@
           </button>
           <a href="{{ site.baseurl }}/" title="HOME"><img src="{{ site.baseurl }}/logo.png" alt="logo" style="width:150px;cursor:pointer;margin-top:15px;"/></a>
       </div>
+<style>
+        
+        .drop-down-content{
+            padding: 0px;
+            display: none;
+        }
+        .drop-down-content li:hover a{
+            background-color:none;
+        }
+        .drop-down:hover .drop-down-content{
+            display: block;
+        }
+        .drop-down {
+            padding: 0px;
+        }
+
+  </style>   
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right" style="margin-right:1em; text-shadow: -.025em -.025em 0 rgba(0, 133, 161, 0.75)">
       <!--<ul class="nav navbar-nav"></ul>-->
         <li><a href="{{ site.baseurl }}/about">About</a></li>
         <li><a href="{{ site.baseurl }}/research">Research</a></li>
-        <li><a href="{{ site.baseurl }}/people">People</a></li>
+        <li class="drop-down">
+        <a href="{{ site.baseurl }}/people">people</a>
+          <ul class="drop-down-content" style="list-style: none;">
+            <li><a href="{{ site.baseurl }}/people">Memebers</a></li>
+            <li><a href="/home/people/teamalbum">Team Album</a></li>
+          </ul>
+        </li>
         <li><a href="{{ site.baseurl }}/publication">Publicaiton</a></li>
         <li><a href="{{ site.baseurl }}/about">Software</a></li>
         <li><a href="{{ site.baseurl }}/resource">Resource</a></li>
