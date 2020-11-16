@@ -101,9 +101,9 @@ table p { padding: 0; }
 table sup { vertical-align: text-top; font-size: .55em; display: inline-block; margin: 2px 5px 0 -10px; }
 table p.table-top { display: inline-block; background: #EA8E00; color: #F7F6F5; text-transform: uppercase; padding: 7px 1em 5px 1em; font-size: .6em; line-height: 1; position: relative; top: -16px; margin-bottom: 1em; font-weight: bold; letter-spacing: .05em; }
 
-ul.arrows, ul.ticks { padding-left: 2em; }
-ul.arrows li, ul.ticks li { list-style: none; position: relative; }
-ul.arrows li::before, ul.ticks li::before { position: absolute; left: -1.5em; font-size: 1.1em; font-weight: normal; }
+ul.arrows, ul.ticks { padding-left: 0em; }
+ul.arrows li, ul.ticks li { list-style: none; position:absolute; }
+ul.arrows li::before, ul.ticks li::before { position: absolute; left: 0em; font-size: 1.1em; font-weight: normal; }
 ul.arrows li::before { content: '→'; }
 ul.ticks li::before { content: '✔';}
 
