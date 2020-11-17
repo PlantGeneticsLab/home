@@ -1,0 +1,100 @@
+---
+layout: page
+title: ""
+description: ""
+active: about
+header-img: "software/tiger copy.jpg"
+---
+
+<style>
+.img{
+    width: 20%;
+    height: 20%;
+    cursor: pointer;
+}
+.line{
+    height:2px;border:none;border-top:1px solid #000000;
+}
+.line2{
+    height:2px;border:none;border-top:1px solid darkgray; 
+}
+a,a:hover{
+    color:orange;
+}
+a,a:focus{
+    color: deepskyblue;
+}
+</style>
+
+<body >
+<img src="tiger.jpg" class="img">
+<h1>Integrated for Genetic and Evolutionary Research</h1>
+<hr class="line">
+<p><em>Code packages and apps to conduct efficient genetic and evolutionary analysis</em></p>
+<hr class="line">
+<br>
+<h1 >Overview</h1>
+<hr class="line2">
+<p>IGER integrates a collection of toolkits facilitating research analysis on genetics and evolution. It is a Java based program, combining efficiency and flexibility to realize high-performance computation of various types of analysis.</p>
+<hr class="line">
+<h1 >Usage</h1>
+<hr class="line2">
+<p>TIGER is designed to simpliy its usage for the convinience of end users. It has a list of applications (Apps). Each app has a parameter file, where app parameters can be specified in the parameter file. Users can run apps in TIGER by selecting an app and specifify its parameters. 
+    TIGER has only two options,</p>
+<ul>
+    <li>-a, the name of the selected app</li>
+    <li>-p, the path of the parameter file  </li>
+</ul>
+<p>Take running app FastCall as an example, the commnand line is,</p>
+<ul>
+    <li>java -Xmx100g -jar TIGER.jar -a FastCall -p ./parameter_fastcall.txt > log.txt &</li>
+</ul>
+<p>TIGER will be developed in a long-term basis. Detailed usage of apps can be seen below.</p>
+<hr class="line">
+<h1>User Manual of Apps</h1>
+<hr class="line2">
+<ul>
+    <li><a href="https://github.com/PlantGeneticsLab/TIGER/wiki/FastCall">FastCall </a>-Superfast variant calling and genotyping for whole-genome shotgun (WGS) sequencing data.</li>
+    <li><a href="https://github.com/PlantGeneticsLab/TIGER/wiki/HapScanner">HapScanner</a>-Superfast genotyper for whole-genome shotgun (WGS) sequencing data, based on an existing genetic variation library.</li>
+    <li><a href="https://github.com/PlantGeneticsLab/TIGER/wiki/PopDep">PopDep</a>-Read depth profiler for a population, based on whole-genome shotgun (WGS) sequencing data..</li>
+</ul>
+<hr class="line">
+<h1>Developer Manual</h1>
+<hr class="line2">
+<ul>
+    <li><a href="https://docs.google.com/document/d/1BU99b3joz0yItsJi2VabWbl6EyYfJmbo2oGUybl4PoM/edit?usp=sharing">TIGER Developer Manual
+    </a></li>
+</ul>
+<hr class="line">
+<h1>Releases</h1>
+<hr class="line2">
+<ul>
+    <li><a href="https://github.com/PlantGeneticsLab/TIGER/releases/tag/V1.0.0">v1.0.0 </a>03/31/2020</li>
+    <li><a href="https://github.com/PlantGeneticsLab/TIGER/releases/tag/v1.0.1">v1.0.1 </a>05/15/2020</li>
+</ul>
+<hr class="line">
+<h1>Citations</h1>
+<hr class="line2">
+<ul>
+    <li>FastCall
+        <br>
+        <a href="https://www.nature.com/articles/ng.3845">Punna Ramu, Williams Esuma, Robert Kawuki, Ismail Y Rabbi, Chiedozie Egesi, Jessen V Bredeson, Rebecca S Bart, Janu Verma, Edward S Buckler, Fei Lu. (2017). Cassava haplotype map highlights fixation of deleterious mutations during clonal propagation. Nature Genetics. doi: 10.1038/ng.3845!</a>   
+    </li>
+    <li>HapScanner
+        <br>
+        <a href="https://www.nature.com/articles/s41588-020-00722-w">Y. Zhou, X. Zhao, Y. Li, J. Xu, A. Bi, L. Kang, D. Xu, H. Chen, Y. Wang, Y. Wang, S. Liu, C. Jiao, H. Lu, J. Wang, C. Yin, Y. Jiao, F. Lu. (2020). Triticum population sequencing provides insights into wheat adaptation. Nature Genetics. doi:10.1038/s41588-020-00722-w</a>
+    </li>
+<br>
+<hr >
+
+</ul>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+</body>
