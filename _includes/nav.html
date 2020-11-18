@@ -13,31 +13,34 @@
             padding: 0 px;
             display: none;
             list-style: none;
+            overflow-y:hidden;
         }
-        .drop-down-content li:hover a{
-            background-color:none;
-        }
-        .nav .drop-down:hover .drop-down-content{
+       .drop-down:hover .drop-down-content{
             display:block;
+            right:0px;
+            max-width: width 500px; ;
         }
         .drop-down {
             padding: 0px;
         }
         .m{
-          cursor: pointer;
+           cursor: pointer;
         }
+        .dropdown:hover > dropdown-menu {
+        display: flex;
+        margin: -0.125rem 0 0;
   </style>   
 
       <div class="collapse navbar-collapse m" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right" style="margin-right:0em; text-shadow: -.025em -.025em 0 rgba(0, 133, 161, 0.75)">
+      <ul class="nav navbar-nav navbar-right" style="margin-right:0em; text-shadow: -.025em -.025em 0 rgba(0, 133, 161, 0.75) ">
       <!--<ul class="nav navbar-nav"></ul>-->
         <li><a href="{{ site.baseurl }}/about">About</a></li>
         <li><a href="{{ site.baseurl }}/research">Research</a></li>
         <li class="drop-down">
-        <a href="{{ site.baseurl }}/people">people</a>
-          <ul class="drop-down-content" >
-            <li><a href="{{ site.baseurl }}/people">Memebers</a></li>
-            <li><a href="/home/people/teamalbum">Team Album</a></li>
+        <a href="{{ site.baseurl }}/people" class="drop-down dropdown" >people</a>
+          <ul  class="drop-down-content">
+            <li><a href="{{ site.baseurl }}/people" >Team</a></li>
+            <li><a href="/home/people/teamalbum">Album</a></li>
           </ul>
         </li>
         <li><a href="{{ site.baseurl }}/publication">Publication</a></li>
