@@ -3,7 +3,7 @@ layout: page
 title: "Vmap 3"
 description: "Plant Genetics Lab"
 active: about
-header-img: "img/resource.jpg"
+header-img: "/resource/vmap3-bg.jpeg"
 ---
 <style>
 .line{
@@ -17,7 +17,7 @@ header-img: "img/resource.jpg"
     font-size: 22px;
 }
 a,a:hover{
-    color:deepskyblue;
+    color:skyblue;
 }
 a,a:focus{
     color: orange;
@@ -27,6 +27,48 @@ a,a:focus{
 <body>
 <h1>VMap 3.0</h1>
 <hr class="line">
+<p class="small">We developed VMap 3, the third version of the high-density genetic variation map of wheat by whole-genome sequencing of all species of AA, AABB and AABBDD genomes within the genus <em><strong>Triticum</strong></em>, and the progenitor of D subgenome of bread wheat, <strong><em>Aegilops. tasuschii</em></strong>. 
+    There will have serval versions to meet different requirements.</p>
+    <hr class="line">
+<br>
+
+<h2><a href="http://127.0.0.1:4000/home/resource/raw_version" style="color:black;">• Raw Version</a></h2>
+<p class="small"> The original version was built using reference IWGSC RefSeq v1.0, aligner Bwa (Version: 0.7.17-r1188) and the SNP caller <a href="https://github.com/PlantGeneticsLab/TIGER/wiki/FastCall">FastCall 2 </a>(TIGER_v1.0.3.jar).
+    &nbspIt includes 1196 hexaploid wheat (AABBDD genome), 212 tetraploid wheat (AABB genome), and 220 <strong><em>Ae. tauschii </em></strong>(DD genome).
+This version keeps both biallelic and triallelic SNPs and Indels that generated 875,151,958 variants totally.</p>
+
+<h2>• Version 1 </h2>
+<p class="small"> This version goes through the first filtration by the 80% reliable site library. It includes 382,759,847 variants of biallelic and triallelic, both SNPs and Indels.</p>
+
+<h2>• Version 2</h2>
+<p class="small">The second version is based on filtering 80% reliable site library, the following parameters are filtered: </p>
+<dl>
+    <dd>  &nbsp &nbsp - heterozygosity rate < 0.05</dd>
+    <dd>  &nbsp &nbsp - missing rate < 0.2</dd>
+</dl>
+<p class="small">This version reserves 357,231,897 variants, containing biallelic SNPs and Indels. </p>
+
+<h2>• Version 3</h2>
+<p class="small">The third version builds on the second version that only retains 344,460,342 variants of biallelic SNPs.</p>
+
+
+
+<br>
+<br>
+<hr class="line">
+<h3>Contact</h3>
+<p class="small">yf.guo@genetics.ac.cn (Yafei Guo);&nbsp  songxycc@gmail.com (Xinyue Song);&nbsp flu@genetics.ac.cn (Fei Lu)					
+<br> Institute of Genetics and Developmental Biology, Chinese Academy of Sciences</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
