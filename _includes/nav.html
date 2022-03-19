@@ -14,11 +14,13 @@
             display: none;
             list-style: none;
             overflow-y:hidden;
+            line-height: 40px;
+            justify-content: center;
         }
        .drop-down:hover .drop-down-content{
             display:block;
             right:0px;
-            max-width: width 600px; ;
+            max-width: width 700px; ;
         }
         .drop-down {
             padding: 0px;
@@ -28,7 +30,7 @@
         }
         .dropdown:hover > dropdown-menu {
         display: flex;
-        margin: -0.125rem 0 0;}
+        margin: 0 0 0;}
   </style>   
 
       <div class="collapse navbar-collapse m" id="bs-example-navbar-collapse-1">
@@ -45,10 +47,10 @@
         <li><a href="{{ site.baseurl }}/publication">Publication</a></li>
 
         <li class="drop-down">
-          <a href="{{ site.baseurl }}/software">Software</a>
+          <a href="{{ site.baseurl }}/software" style="width: 179px;">Softwares</a>
           <ul class="drop-down-content">
             <li><a href="/home/software/tiger">Tiger</a></li>
-            <li><a href="/home/software/SiPAS">SiPAS</a></li>
+            <li><a href="/home/software/SiPAS">SiPAS-tools</a></li>
           </ul>
         </li>
 

@@ -80,7 +80,9 @@ hr.small {
   }
   .navbar-custom .nav li a {
     color: white;
-    padding: 20px;
+    padding: 25px;
+    display: block;
+
   }
   .navbar-custom .nav li a:hover{
     color: #0085a1;

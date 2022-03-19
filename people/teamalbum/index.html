@@ -2,83 +2,34 @@
 layout: page
 title: "Team Album"
 description: "Plant Genetics Lab"
-active: gallery
 header-img: "img/group.jpg"
-images:
- - image_path: /people/teamalbum/2017group.jpg
-   gallery-name: 2017
-   gallery-date: 2017
- - image_path: /people/teamalbum/2020group.jpg
-   gallery-name: 2020
-   gallery-date: 2020
-
 ---
 
-<html class="no-js" lang="en">
 <head>
-	<meta content="charset=utf-8">
-    <link rel="stylesheet" href="{{ "/css/selena.css" | prepend: site.baseurl }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
 </head>
-
-
-    <body class="gallery">
- 
-	<section id="content" role="main">
-		<div class="wrapper">
-	
-			<h2>{{page.title}}</h2>
-			
-			<!-- Gallery __-->
-			<div class="gallery masonry-gallery">
-				
-{% for image in page.images %}  	
-
-	               <figure class="gallery-item">
-                         <figure class="effect-selena">
-					<header class='gallery-icon'>
-		       
-<a href="{{ site.url }}{{ site.baseurl }}{{ image.gallery-folder }}">
-<img src="{{ site.url }}{{ site.baseurl }}{{ image.image_path }}"></a>
-
-					</header>	
-					<figcaption class='gallery-caption'>
-						<div class="entry-summary">
-							<h3>{{image.gallery-name}}</h3>
-							<p>{{image.gallery-date}}</p>
-						</div>
-					</figcaption>
-                       </figure>
-				</figure>
-							
-{% endfor %}		
-				
-			</div>
-			
-		</div><!-- END .wrapper -->
-  </section>
-  
-  <br>
-  <br>
-
-
-
-
-
-<!-- jQuery -->    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="{{ site.baseurl }}/js/retina.min.js"></script>
-<!-- include Masonry -->
-<script src="{{ site.baseurl }}/js/isotope.pkgd.min.js"></script> 
-<!-- include mousewheel plugins -->
-<script src="{{ site.baseurl }}/js/jquery.mousewheel.min.js"></script>
-<!-- include carousel plugins -->
-<script src="{{ site.baseurl}}/js/jquery.tinycarousel.min.js"></script>
-<!-- include svg line drawing plugin -->
-<script src="{{ site.baseurl }}/js/jquery.lazylinepainter.min.js"></script>
-<!-- include custom script -->
-<script src="{{ site.baseurl }}/js/scripts.js"></script>
-<!-- Modernizr -->
- <script src="{{ site.baseurl }}/js/modernizr.js"></script>
-
-</body></html>
+<body>
+    <div class="wrapper">
+        <nav>
+            <div class="item">
+                <span class="items active" data-name="all">All</span>
+                <span class="items" data-name="2017">2017</span>
+                <span class="items" data-name="2018"> 2018</span>
+                <span class="items" data-name="2019">2019</span>
+                <span class="items" data-name="2020">2020</span>
+                <span class="items" data-name="2021">2021</span>
+            </div>
+        </nav>
+        <br>
+        <div class="gallery">
+            <div class="image" data-name="2017"><span><img src="./2017group.jpg" alt=""></span></div>
+            <div class="image" data-name="2020"><span><img src="./2020group.jpg" alt=""></span></div>
+            <div class="image" data-name="2021"><span><img src="./2021group.jpg" alt=""></span></div>
+            <div class="image" data-name="2021"><span><img src="./IMG_1719.jpg" alt=""></span></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body> 
