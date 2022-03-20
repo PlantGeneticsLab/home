@@ -1,5 +1,5 @@
 :root{
-  --main-bg-color: #ff7675;
+  --main-bg-color: darkorange;
 }
 *,
 *::after,
@@ -95,6 +95,7 @@ hr{
 .card__title{
   font-family: 'Hind';
   font-size: 20px;
+  font-family: serif;
   font-weight: 600;
   line-height: 1.4;
   margin: 0 0 10px;
@@ -131,13 +132,18 @@ hr{
 .nav__link{
   padding: 0 20px 4px;
   color: black;
-  font-size: 1.4rem;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight:bold;
+  font-family: serif;
+  font-style: inherit;
   display: block;
   border-bottom: 2px solid transparent;
 }
 .nav__link.is-active{
   border-color: var(--main-bg-color);
+}
+.nav__link:hover{
+  color: chocolate;
 }
 
 .footer__list.list{
