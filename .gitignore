@@ -3,4 +3,4 @@ node_modules
 .jekyll-cache
 Gemfile
 Gemfile.lock
-.DS_Store
+*.DS_Store
