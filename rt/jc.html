@@ -6,911 +6,1175 @@ active: about
 header-img: "rt/silhouette-g53e47a572_1280.jpeg"
 ---
 
-
 <style>
-    .img{
-        width: 25%;
-        height: 25%;
+    .jc-list-container {
+        max-width: 1200px; 
+        margin: 0 auto;
+        padding: 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* 1. 年份导航栏：固定在顶部 */
+    .year-tabs-container {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 20px 0;
+        z-index: 100;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+    /* 2. 年份圆角矩形框 */
+    .year-tab {
+        display: inline-block;
+        padding: 10px 25px;
+        margin: 0 8px;
+        border: 2px solid #5176aa;
+        border-radius: 30px; /* 圆角控制 */
+        color: #5176aa;
         cursor: pointer;
+        font-weight: 600;
+        font-size: 1.8rem;
+        transition: all 0.3s;
     }
-    .line{
-        height:2px;border:none;border-top:1px solid #000000;
-    }
-    .line2{
-        height:2px;border:none;border-top:1px solid darkgray; 
-    }
-    a,a:hover{
-        color:#5176aa;
-    }
-    a,a:focus{
-        color: darkorange;
-    }
-    </style>
 
-    <body>
-<h1>Journal Club</h1>
-<hr class="line">
-<br>
-<h2>2025</h2>
-<p>
+    .year-tab.active {
+        background-color: #5176aa;
+        color: white;
+    }
+
+    .year-tab:hover {
+        background-color: #f0f5ff;
+    }
+
+    /* 3. 内容区域 */
+    .jc-year-group {
+        display: none;
+        animation: fadeIn 0.5s ease-out;
+    }
+
+    .jc-year-group.active {
+        display: block;
+    }
+
+    .jc-item {
+        padding: 45px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .jc-date {
+        font-size: 1.2rem;
+        color: #999;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+    }
+
+    /* 标题：2rem，普通粗细 */
+    .jc-paper-title {
+        display: block;
+        font-size: 2rem; 
+        line-height: 1.35;
+        color: #1a1a1a;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+
+    /* 仅期刊名：加粗 + 倾斜 */
+    .jc-paper-title i {
+        font-style: italic;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
+
+    /* DOI：1.2rem */
+    .jc-doi-wrapper {
+        font-size: 1.5rem;
+        color: #5176aa;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .jc-doi-wrapper a {
+        color: #5176aa;
+        text-decoration: none;
+    }
+
+    /* 分享人：较小字体 */
+    .jc-presenter {
+        display: block;
+        font-size: 1.2rem;
+        color: #777;
+        margin-top: 20px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="jc-list-container">
+    <h1 style="text-align: center; margin: 40px 0;">Journal Club</h1>
+    
+    <div id="yearTabs" class="year-tabs-container"></div>
+
+    <!-- 原始数据区：所有含 h3 的文献直接贴在这里 -->
+    <div id="raw-data" style="display:none;">
+        
+ <!-- 2026 Journal Club Data Start -->
+ <div class="jc-entry">
+    <h3>Apr 03 2026</h3>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Jaganathan K et al., Predicting expression-altering promoter mutations with deep learning. <i>Science</i>, 2025, 389, eads7373.</p>
+    <a href="https://doi.org/10.1126/science.ads7373">https://doi.org/10.1126/science.ads7373</a>
+</div>
+
+ <div class="jc-entry">
+    <h3>Mar 27 2026</h3>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Lutgen D et al., A mosaic of modular variation at a single gene underpins convergent plumage coloration. <i>Science</i>, 2025, 390, eado8005.</p>
+    <a href="https://doi.org/10.1126/science.ado8005">https://doi.org/10.1126/science.ado8005</a>
+</div>
+
+ <div class="jc-entry">
+    <h3>Mar 20 2026</h3>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Ricemeyer, E.S., Schaefer, N.K., Du, K. et al., Gene conversion empowers natural selection in a clonal fish species. <i>Nature</i>, 2026.</p>
+    <a href="https://doi.org/10.1038/s41586-026-10180-9">https://doi.org/10.1038/s41586-026-10180-9</a>
+</div>
+
+ <div class="jc-entry">
+    <h3>Mar 06 2026</h3>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Avsec, Ž., Latysheva, N., Cheng, J. et al., Advancing regulatory variant effect prediction with AlphaGenome. <i>Nature</i>, 2026, 649, 1206–1218.</p>
+    <a href="https://doi.org/10.1038/s41586-025-10014-0">https://doi.org/10.1038/s41586-025-10014-0</a>
+</div>
+
+ <div class="jc-entry">
+    <h3>Jan 30 2026</h3>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Schuster C, Gabel A, Drost H et al., Evolutionary transcriptomics unveils rapid changes of gene expression patterns in flowering plants. <i>Cell</i>, 2026, 189, 375-385.e14.</p>
+    <a href="https://doi.org/10.1016/j.cell.2025.12.015">https://doi.org/10.1016/j.cell.2025.12.015</a>
+</div>
+
+ <div class="jc-entry">
+    <h3>Jan 23 2026</h3>
+    <p>Presenter: Shuyi Xing</p>
+    <p>Paper: Large CRL, Khanal R, Hillier L et al., Lineage-resolved analysis of embryonic gene expression evolution in <i>C. elegans</i> and <i>C. briggsae</i>. <i>Science</i>, 2025, 388(6753), eadu8249.</p>
+    <a href="https://doi.org/10.1126/science.adu8249">https://doi.org/10.1126/science.adu8249</a>
+</div>
+
+        <div class="jc-entry">
+            <h3>Jan 09 2026</h3>
+            <p>Presenter: Shujin Chen</p>
+            <p>Paper: Phan, M.H.Q., Zehnder, T., Puntieri, F. et al., Conservation of regulatory elements with highly diverged sequences across large evolutionary distances. <i>Nature Genetics</i>, 2025, 57, 1524–1534.</p>
+            <a href="https://doi.org/10.1038/s41588-025-02202-5">https://doi.org/10.1038/s41588-025-02202-5</a>
+        </div>
+
+        <!-- 2025 Journal Club Data Start -->
+
+        <div class="jc-entry">
+            <h3>Dec 26 2025</h3>
+            <p>Presenter: Da Zheng</p>
+            <p>Paper: Wainschtein, P., Zhang, Y., Schwartzentruber, J. et al., Estimation and mapping of the missing heritability of human phenotypes. <i>Nature</i>, 2026, 649, 1219–1227.</p>
+            <a href="https://doi.org/10.1038/s41586-025-09720-6">https://doi.org/10.1038/s41586-025-09720-6</a>
+        </div>
+
+        <div class="jc-entry">
+            <h3>Dec 09 2025</h3>
+            <p>Presenter: Jingchen Yuan</p>
+            <p>Paper: Foley, N.M., Rasulis, R.G., Wani, Z. et al., An ancient recombination desert is a speciation supergene in placental mammals. <i>Nature</i>, 2026, 649, 1228–1236.</p>
+            <a href="https://doi.org/10.1038/s41586-025-09740-2">https://doi.org/10.1038/s41586-025-09740-2</a>
+        </div>
+
+        <div class="jc-entry">
+            <h3>Dec 12 2025</h3>
+            <p>Presenter: Ao Li</p>
+            <p>Paper: Metheringham CL et al., Rapid polygenic adaptation in a wild population of ash trees under a novel fungal epidemic. <i>Science</i>, 2025, 388(6754), 1422-1425.</p>
+            <a href="https://doi.org/10.1126/science.adp2990">https://doi.org/10.1126/science.adp2990</a>
+        </div>
+
+        <div class="jc-entry">
+            <h3>Dec 05 2025</h3>
+            <p>Presenter: You Qing</p>
+            <p>Paper: Akopyan M, Genchev M, Armstrong E et al., Reference genome choice compromises population genetic analyses. <i>Cell</i>, 2025, 188, 6939-6952.e11.</p>
+            <a href="https://doi.org/10.1016/j.cell.2024.10.024">https://doi.org/10.1016/j.cell.2024.10.024</a>
+        </div>
+
+<div class="jc-entry">
+            <h3>Oct 17 2025</h3>
+            <p>Presenter: Yaqin Hu</p>
+    <p>Paper: Villanea FA et al., The MUC19 Gene: An Evolutionary History of Recurrent Introgression and Natural Selection. <i>Science</i>, 2025, 389(6762).</p>
+    <a href="https://doi.org/10.1126/science.adl0882">https://doi.org/10.1126/science.adl0882</a>
+</div> 
+
+<div class="jc-entry">
     <h3>Oct 10 2025</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Zhou Zhu et al., Genomic atlas of 8,105 accessions reveals stepwise domestication, global dissemination, and improvement trajectories in soybean.<i><b>Cell</b></i>, 2025.
-    <br><a href="DOI: 10.1016/j.cell.2025.09.007>doi: 10.1016/j.cell.2025.09.007 External Link6</a>
-</p>
-        
-<p>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Zhou Zhu et al., Genomic atlas of 8,105 accessions reveals stepwise domestication, global dissemination, and improvement trajectories in soybean. <i>Cell</i>, 2025.</p>
+    <a href="https://doi.org/10.1016/j.cell.2025.09.007">https://doi.org/10.1016/j.cell.2025.09.007</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 25 2025</h3>
-    Presenter: Zelin Niu<br>
-    Paper: François Monnet et al., Rapid establishment of species barriers in plants compared with that in animals.<i><b>Science</b></i>, 2025.
-    <br><a href="DOI: 10.1126/science.adl2356">doi: 10.1126/science.adl2356</a>
-</p>
-        
-<p>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: François Monnet et al., Rapid establishment of species barriers in plants compared with that in animals. <i>Science</i>, 2025.</p>
+    <a href="https://doi.org/10.1126/science.adl2356">https://doi.org/10.1126/science.adl2356</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 19 2025</h3>
-    Presenter: Zelin Niu<br>
-    Paper: Oliver Lemke et al., The role of metabolism in shaping enzyme structures over 400 million years.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-09205-6">doi: https://doi.org/10.1038/s41586-025-09205-6</a>
-</p>
-        
-<p>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Oliver Lemke et al., The role of metabolism in shaping enzyme structures over 400 million years. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-09205-6">https://doi.org/10.1038/s41586-025-09205-6</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 12 2025</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Martin Sikora et al., The spatiotemporal distribution of human pathogens in ancient Eurasia.<i><b>Nature Genetics</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-09192-8">doi: https://doi.org/10.1038/s41586-025-09192-8</a>
-</p>
-        
-<p>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Martin Sikora et al., The spatiotemporal distribution of human pathogens in ancient Eurasia. <i>Nature Genetics</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-09192-8">https://doi.org/10.1038/s41586-025-09192-8</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 5 2025</h3>
-    Presenter: Jinhong Chen<br>
-    Paper: Anna A. Igolkina et al., A comparison of 27 Arabidopsis thaliana genomes and the path toward an unbiased characterization of genetic polymorphism.<i><b>Nature Genetics</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41588-025-02293-0">doi: https://doi.org/10.1038/s41588-025-02293-0</a>
-</p>
-        
-<p>
+    <p>Presenter: Jinhong Chen</p>
+    <p>Paper: Anna A. Igolkina et al., A comparison of 27 Arabidopsis thaliana genomes and the path toward an unbiased characterization of genetic polymorphism. <i>Nature Genetics</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41588-025-02293-0">https://doi.org/10.1038/s41588-025-02293-0</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 22 2025</h3>
-    Presenter: Yuting Li<br>
-    Paper: Julia Engelhorn et al., Genetic variation at transcription factor binding sites largely explains phenotypic heritability in maize.<i><b>Nature Genetics</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41588-025-02246-7">doi: https://doi.org/10.1038/s41588-025-02246-7</a>
-</p>
-        
-<p>
+    <p>Presenter: Yuting Li</p>
+    <p>Paper: Julia Engelhorn et al., Genetic variation at transcription factor binding sites largely explains phenotypic heritability in maize. <i>Nature Genetics</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41588-025-02246-7">https://doi.org/10.1038/s41588-025-02246-7</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 15 2025</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Sophia G. Zebell et al., Cryptic variation fuels plant phenotypic change through hierarchical epistasis.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-09243-0">doi: https://doi.org/10.1038/s41586-025-09243-0</a>
-</p>
-        
-<p>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Sophia G. Zebell et al., Cryptic variation fuels plant phenotypic change through hierarchical epistasis. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-09243-0">https://doi.org/10.1038/s41586-025-09243-0</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 7 2025</h3>
-    Presenter: Shuyi Xing<br>
-    Paper: Zhiyang Zhang et al., Ancient hybridization underlies tuberization and radiation of the potato lineage.<i><b>Nature Ecology & Evolution</b></i>, 2025.
-    <br><a href="DOI: 10.1016/j.cell.2025.06.034 ">doi: 10.1016/j.cell.2025.06.034 </a>
-</p>
-        
-<p>
+    <p>Presenter: Shuyi Xing</p>
+    <p>Paper: Zhiyang Zhang et al., Ancient hybridization underlies tuberization and radiation of the potato lineage. <i>Nature Ecology & Evolution</i>, 2025.</p>
+    <a href="https://doi.org/10.1016/j.cell.2025.06.034">https://doi.org/10.1016/j.cell.2025.06.034</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 1 2025</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Stepfanie M. Aguillon et al., Pervasive gene flow despite strong and varied reproductive barriers in swordtails.<i><b>Nature Ecology & Evolution</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41559-025-02669-9">doi: https://doi.org/10.1038/s41559-025-02669-9</a>
-</p>
-        
-<p>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Stepfanie M. Aguillon et al., Pervasive gene flow despite strong and varied reproductive barriers in swordtails. <i>Nature Ecology & Evolution</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41559-025-02669-9">https://doi.org/10.1038/s41559-025-02669-9</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jul 11 2025</h3>
-    Presenter: Jijin Zhang<br>
-    Paper: Alexandre P. Marand et al., The genetic architecture of cell type–specific cis regulation in maize.<i><b>Science</b></i>, 2025.
-    <br><a href="DOI: 10.1126/science.ads6601">doi: 10.1126/science.ads6601</a>
-</p>
-        
-<p>
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Alexandre P. Marand et al., The genetic architecture of cell type–specific cis regulation in maize. <i>Science</i>, 2025.</p>
+    <a href="https://doi.org/10.1126/science.ads6601">https://doi.org/10.1126/science.ads6601</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jun 11 2025</h3>
-    Presenter: Song Xu<br>
-    Paper: Liyang Song et al., Systems-level design principles of metabolic rewiring in an animal.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-08757-x">doi: https://doi.org/10.1038/s41586-025-08757-x</a>
-</p>
-        
-<p>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Liyang Song et al., Systems-level design principles of metabolic rewiring in an animal. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-08757-x">https://doi.org/10.1038/s41586-025-08757-x</a>
+</div>
+
+<div class="jc-entry">
     <h3>May 30 2025</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Xuhang Li et al., Systems-level design principles of metabolic rewiring in an animal.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-08636-5">doi: https://doi.org/10.1038/s41586-025-08636-5</a>
-</p>
-        
-<p>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Xuhang Li et al., Systems-level design principles of metabolic rewiring in an animal. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-08636-5">https://doi.org/10.1038/s41586-025-08636-5</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 18 2025</h3>
-    Presenter: Da Zheng<br>
-    Paper: Sile Hu et al., Fine-scale population structure and widespread conservation of genetic effect sizes between human groups across traits.<i><b>Nature Genetics</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41588-024-02035-8">doi: https://doi.org/10.1038/s41588-024-02035-8</a>
-</p>
-        
-<p>
+    <p>Presenter: Da Zheng</p>
+    <p>Paper: Sile Hu et al., Fine-scale population structure and widespread conservation of genetic effect sizes between human groups across traits. <i>Nature Genetics</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41588-024-02035-8">https://doi.org/10.1038/s41588-024-02035-8</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 11 2025</h3>
-    Presenter: Ao Li<br>
-    Paper: Michael C. Grundler et al., A geographic history of human genetic ancestry.<i><b>Science</b></i>, 2025.
-    <br><a href="DOI: 10.1126/science.adp464">doi: 10.1126/science.adp464</a>
-</p>
-        
-<p>
+    <p>Presenter: Ao Li</p>
+    <p>Paper: Michael C. Grundler et al., A geographic history of human genetic ancestry. <i>Science</i>, 2025.</p>
+    <a href="https://doi.org/10.1126/science.adp464">https://doi.org/10.1126/science.adp464</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 28 2025</h3>
-    Presenter: Jingchen Yuan<br>
-    Paper: David A. Duchêne et al., Drivers of avian genomic change revealed by evolutionary rate decomposition.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-08777-7">doi: https://doi.org/10.1038/s41586-025-08777-7</a>
-</p>
-        
-<p>
+    <p>Presenter: Jingchen Yuan</p>
+    <p>Paper: David A. Duchêne et al., Drivers of avian genomic change revealed by evolutionary rate decomposition. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-08777-7">https://doi.org/10.1038/s41586-025-08777-7</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 21 2025</h3>
-    Presenter: Yaqin Hu<br>
-    Paper: Matthias Benoit et al., Solanumpan-genetics reveals paralogues as contingencies in crop engineering.<i><b>Nature</b></i>, 2025.
-    <br><a href="https://doi.org/10.1038/s41586-025-08619-6">doi: https://doi.org/10.1038/s41586-025-08619-6</a>
-</p>
-        
-<p>
+    <p>Presenter: Yaqin Hu</p>
+    <p>Paper: Matthias Benoit et al., Solanumpan-genetics reveals paralogues as contingencies in crop engineering. <i>Nature</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-025-08619-6">https://doi.org/10.1038/s41586-025-08619-6</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 18 2025</h3>
-    Presenter: You Qing<br>
-    Paper: Sudarshan Pinglay et al., Multiplex generation and single-cell analysis of structural variants in mammalian genomes.<i><b>Science</b></i>, 2025.
-    <br><a href="DOI: 10.1126/science.ado5978">doi: 10.1126/science.ado5978</a>
-</p>
-        
-<p>
+    <p>Presenter: You Qing</p>
+    <p>Paper: Sudarshan Pinglay et al., Multiplex generation and single-cell analysis of structural variants in mammalian genomes. <i>Science</i>, 2025.</p>
+    <a href="https://doi.org/10.1126/science.ado5978">https://doi.org/10.1126/science.ado5978</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 6 2025</h3>
-    Presenter: Jun Xu<br>
-    Paper: Hongbo Liu et al., Kidney multiome-based genetic scorecard reveals convergent coding and regulatory variants.<i><b>Science</b></i>, 2025.
-    <br><a href="https://www.science.org/doi/10.1126/science.adp4753">doi: 10.1126/science.adp4753</a>
-</p>
-        
-<p>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: Hongbo Liu et al., Kidney multiome-based genetic scorecard reveals convergent coding and regulatory variants. <i>Science</i>, 2025.</p>
+    <a href="https://www.science.org/doi/10.1126/science.adp4753">https://www.science.org/doi/10.1126/science.adp4753</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 28 2025</h3>
-    Presenter: Beijing Zhu<br>
-    Paper: Chloé Beaulieu et al., The Marchantia polymorpha pangenome reveals ancient mechanisms of plant adaptation to the environment.<i><b>Nature Genetics</b></i>, 2025.
-    <br><a href="https://www.nature.com/articles/s41588-024-02071-4">doi: https://doi.org/10.1038/s41588-024-02071-4</a>
-</p>
-        
-<p>
+    <p>Presenter: Beijing Zhu</p>
+    <p>Paper: Chloé Beaulieu et al., The Marchantia polymorpha pangenome reveals ancient mechanisms of plant adaptation to the environment. <i>Nature Genetics</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41588-024-02071-4">https://doi.org/10.1038/s41588-024-02071-4</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 21 2025</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Jing-Jing Xu et al., Design of CoQ10 crops based on evolutionary history.<i><b>Cell</b></i>, 2025.
-    <br><a href="https://www.cell.com/cell/fulltext/S0092-8674(25)00087-X">doi: https://doi.org/10.1016/j.cell.2025.01.023</a>
-</p>
-        
-<p>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Jing-Jing Xu et al., Design of CoQ10 crops based on evolutionary history. <i>Cell</i>, 2025.</p>
+    <a href="https://doi.org/10.1016/j.cell.2025.01.023">https://doi.org/10.1016/j.cell.2025.01.023</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 14 2025</h3>
-    Presenter: Zelin Niu<br>
-    Paper: Lin Cheng et al., Leveraging a phased pangenome for haplotype design of hybrid potato.<i><b>Science</b></i>, 2025.
-    <br><a href="https://www.nature.com/articles/s41586-024-08476-9">doi: https://doi.org/10.1038/s41586-024-08476-9</a>
-</p>
-        
-<p>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Lin Cheng et al., Leveraging a phased pangenome for haplotype design of hybrid potato. <i>Science</i>, 2025.</p>
+    <a href="https://doi.org/10.1038/s41586-024-08476-9">https://doi.org/10.1038/s41586-024-08476-9</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 7 2025</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Thomas Hayes et al., Simulating 500 million years of evolution with a language model.<i><b>Science</b></i>, 2025.
-    <br><a href="https://www.science.org/doi/10.1126/science.ads0018">doi: 10.1126/science.ads0018</a>
-</p>
-        
-<p>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Thomas Hayes et al., Simulating 500 million years of evolution with a language model. <i>Science</i>, 2025.</p>
+    <a href="https://www.science.org/doi/10.1126/science.ads0018">https://www.science.org/doi/10.1126/science.ads0018</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jan 6 2025</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Leonardo N. M. Iasi et al., Neanderthal ancestry through time: Insights from genomes of ancient and present-day humans.<i><b>Science</b></i>, 2024.
-    <br><a href="https://www.science.org/doi/10.1126/science.adq3010">doi: 10.1126/science.adq3010</a>
-</p>
-        
-<br>
-<hr class="line">
-<br>
-        
-<h2>2024</h2>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Leonardo N. M. Iasi et al., Neanderthal ancestry through time: Insights from genomes of ancient and present-day humans. <i>Science</i>, 2024.</p>
+    <a href="https://www.science.org/doi/10.1126/science.adq3010">https://www.science.org/doi/10.1126/science.adq3010</a>
+</div>
 
-<p>
+<!-- 2024 Journal Club Data Start -->
+<div class="jc-entry">
     <h3>Dec 20 2024</h3>
-    Presenter: Jijin Zhang<br>
-    Paper: Junli Liu et al., The complete telomere-to-telomere sequence of a mouse genome.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.adq8191">doi: 10.1126/science.adq8191</a>
-</p>
-        
-<p>
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Junli Liu et al., The complete telomere-to-telomere sequence of a mouse genome. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.adq8191">https://doi.org/10.1126/science.adq8191</a>
+</div>
+
+<div class="jc-entry">
     <h3>Dec 6 2024</h3>
-    Presenter: Song Xu<br>
-    Paper: Barrio-Hernandez, I. et al., Network expansion of genetic associations defines a pleiotropy map of human cell biology.<i><b>Nature Genetics</b></i>, 2023.
-    <br><a href="https://doi.org/10.1038/s41588-023-01327-9">doi: https://doi.org/10.1038/s41588-023-01327-9</a>
-</p>
-        
-<p>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Barrio-Hernandez, I. et al., Network expansion of genetic associations defines a pleiotropy map of human cell biology. <i>Nature Genetics</i>, 2023.</p>
+    <a href="https://doi.org/10.1038/s41588-023-01327-9">https://doi.org/10.1038/s41588-023-01327-9</a>
+</div>
+
+<div class="jc-entry">
     <h3>Dec 6 2024</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Jiao, C et al., Pan-genome bridges wheat structural variations with habitat and breeding.<i><b>Nature</b></i>, 2024.
-    <br><a href="https://doi.org/10.1038/s41586-024-08277-0">doi: https://doi.org/10.1038/s41586-024-08277-0</a>
-</p>
-        
-<p>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Jiao, C et al., Pan-genome bridges wheat structural variations with habitat and breeding. <i>Nature</i>, 2024.</p>
+    <a href="https://doi.org/10.1038/s41586-024-08277-0">https://doi.org/10.1038/s41586-024-08277-0</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 29 2024</h3>
-    Presenter: Da Zheng<br>
-    Paper: Eric Nguyen et al., Sequence modeling and design from molecular to genome scale with Evo.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.ado9336">doi: 10.1126/science.ado9336</a>
-</p>
-        
-<p>
+    <p>Presenter: Da Zheng</p>
+    <p>Paper: Eric Nguyen et al., Sequence modeling and design from molecular to genome scale with Evo. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.ado9336">https://doi.org/10.1126/science.ado9336</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 22 2024</h3>
-    Presenter: Jingchen Yuan<br>
-    Paper: Cheng, S et al., Harnessing landrace diversity empowers wheat breeding.<i><b>Nature</b></i>, 2024.
-    <br><a href="10.1126/sciadv.aav9963">doi: 10.1126/sciadv.aav9963</a>
-</p>
-        
+    <p>Presenter: Jingchen Yuan</p>
+    <p>Paper: Cheng, S et al., Harnessing landrace diversity empowers wheat breeding. <i>Nature</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/sciadv.aav9963">https://doi.org/10.1126/sciadv.aav9963</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Nov 15 2024</h3>
-    Presenter: Ao Li<br>
-    Paper: Hernán E. Morales et al., Genomic architecture of parallel ecological divergence: Beyond a single environmental contrast.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/sciadv.aav9963">doi: 10.1126/sciadv.aav9963</a>
-</p>
-        
-<p>
+    <p>Presenter: Ao Li</p>
+    <p>Paper: Hernán E. Morales et al., Genomic architecture of parallel ecological divergence: Beyond a single environmental contrast. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/sciadv.aav9963">https://doi.org/10.1126/sciadv.aav9963</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 8 2024</h3>
-    Presenter: You Qing<br>
-    Paper: Wanqiu Ding et al., Adaptive functions of structural variants in human brain development.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/sciadv.adl4600">doi: 10.1126/sciadv.adl4600</a>
-</p> 
-        
-<p>
+    <p>Presenter: You Qing</p>
+    <p>Paper: Wanqiu Ding et al., Adaptive functions of structural variants in human brain development. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/sciadv.adl4600">https://doi.org/10.1126/sciadv.adl4600</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 1 2024</h3>
-    Presenter: Jun Xu<br>
-    Paper: James W. Satterlee et al., Convergent evolution of desiccation tolerance in grasses.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.ado1663">doi: 10.1126/science.ado1663</a>
-</p> 
-        
- <p>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: James W. Satterlee et al., Convergent evolution of desiccation tolerance in grasses. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.ado1663">https://doi.org/10.1126/science.ado1663</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 20 2024</h3>
-    Presenter: Yaqin Hu<br>
-    Paper: Marks, R.A. et al., Convergent evolution of desiccation tolerance in grasses.<i><b>Nature Plant</b></i>, 2024.
-    <br><a href="https://doi.org/10.1038/s41477-024-01729-5">doi: https://doi.org/10.1038/s41477-024-01729-5</a>
-</p> 
-        
- <p>
+    <p>Presenter: Yaqin Hu</p>
+    <p>Paper: Marks, R.A. et al., Convergent evolution of desiccation tolerance in grasses. <i>Nature Plant</i>, 2024.</p>
+    <a href="https://doi.org/10.1038/s41477-024-01729-5">https://doi.org/10.1038/s41477-024-01729-5</a>
+</div>
+
+<div class="jc-entry">
     <h3>Sep 6 2024</h3>
-    Presenter: Bingjie Zhu<br>
-    Paper: Tao Shi et al., Position-dependent function of human sequence-specific transcription factors.<i><b>The Plant Cell</b></i>, 2024.
-    <br><a href="https://doi.org/10.1093/plcell/koae227">doi: https://doi.org/10.1093/plcell/koae227</a>
-</p> 
-        
- <p>
+    <p>Presenter: Bingjie Zhu</p>
+    <p>Paper: Tao Shi et al., Position-dependent function of human sequence-specific transcription factors. <i>The Plant Cell</i>, 2024.</p>
+    <a href="https://doi.org/10.1093/plcell/koae227">https://doi.org/10.1093/plcell/koae227</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 29 2024</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Duttke, S.H. et al., Position-dependent function of human sequence-specific transcription factors.<i><b>Nature</b></i>, 2024.
-    <br><a href="https://doi.org/10.1038/s41586-024-07662-z">doi: https://doi.org/10.1038/s41586-024-07662-z</a>
-</p>  
-        
- <p>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Duttke, S.H. et al., Position-dependent function of human sequence-specific transcription factors. <i>Nature</i>, 2024.</p>
+    <a href="https://doi.org/10.1038/s41586-024-07662-z">https://doi.org/10.1038/s41586-024-07662-z</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 23 2024</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Berube, B. et al., Teosinte Pollen Drive guides maize diversification and domestication by RNAi.<i><b>Nature</b></i>, 2024.
-    <br><a href="https://doi.org/10.1038/s41586-024-07788-0">doi: https://doi.org/10.1038/s41586-024-07788-0</a>
-</p>  
-        
- <p>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Berube, B. et al., Teosinte Pollen Drive guides maize diversification and domestication by RNAi. <i>Nature</i>, 2024.</p>
+    <a href="https://doi.org/10.1038/s41586-024-07788-0">https://doi.org/10.1038/s41586-024-07788-0</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 9 2024</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Liming Li et al., Recurrent gene flow between Neanderthals and modern humans over the past 200,000 years.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.adi1768">doi: 10.1126/science.adi1768</a>
-</p>         
-        
-  <p>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Liming Li et al., Recurrent gene flow between Neanderthals and modern humans over the past 200,000 years. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.adi1768">https://doi.org/10.1126/science.adi1768</a>
+</div>
+
+<div class="jc-entry">
     <h3>Aug 1 2024</h3>
-    Presenter: Ao Li<br>
-    Paper: Xin Wei et al., Natural selection drives emergent genetic homogeneity in a century-scale experiment with barley.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.adm8762">doi: 10.1126/science.adm8762</a>
-</p> 
-        
-  <p>
+    <p>Presenter: Ao Li</p>
+    <p>Paper: Xin Wei et al., Natural selection drives emergent genetic homogeneity in a century-scale experiment with barley. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.adm8762">https://doi.org/10.1126/science.adm8762</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jul 19 2024</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Jacob B. Landis et al., Natural selection drives emergent genetic homogeneity in a century-scale experiment with barley.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.adl0038">doi: 10.1126/science.adl0038</a>
-</p> 
-        
- <p>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Jacob B. Landis et al., Natural selection drives emergent genetic homogeneity in a century-scale experiment with barley. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.adl0038">https://doi.org/10.1126/science.adl0038</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jul 12 2024</h3>
-    Presenter: Jijin Zhang<br>
-    Paper: Cindy Wen et al., Cross-ancestry atlas of gene, isoform, and splicing regulation in the developing human brain.<i><b>Science</b></i>, 2024.
-    <br><a href="10.1126/science.adh0829">doi: 10.1126/science.adh0829</a>
-</p>   
-        
-<p>
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Cindy Wen et al., Cross-ancestry atlas of gene, isoform, and splicing regulation in the developing human brain. <i>Science</i>, 2024.</p>
+    <a href="https://doi.org/10.1126/science.adh0829">https://doi.org/10.1126/science.adh0829</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 19 2024</h3>
-    Presenter: Song Xu<br>
-    Paper: Mostafavi, H. et al., Systematic differences in discovery of genetic effects on gene expression and complex traits.<i><b>Nature Genetics</b></i>, 2023.
-    <br><a href="https://www.nature.com/articles/s41588-023-01529-1">doi: https://doi.org/10.1038/s41588-023-01529-1</a>
-</p>
-        
-<p>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Mostafavi, H. et al., Systematic differences in discovery of genetic effects on gene expression and complex traits. <i>Nature Genetics</i>, 2023.</p>
+    <a href="https://doi.org/10.1038/s41588-023-01529-1">https://doi.org/10.1038/s41588-023-01529-1</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 12 2024</h3>
-    Presenter: Yafei Guo<br>
-    Paper: Yeaman Samuel, Whiting, James. et al., Core genes driving climate adaptation in plants.<i><b> </b></i> 2023.
-    <br><a href="https://doi.org/10.21203/rs.3.rs-3434061/v1">doi: 10.21203/rs.3.rs-3434061/v1.</a>
-</p>
-        
-<p>
+    <p>Presenter: Yafei Guo</p>
+    <p>Paper: Yeaman Samuel, Whiting, James. et al., Core genes driving climate adaptation in plants. 2023.</p>
+    <a href="https://doi.org/10.21203/rs.3.rs-3434061/v1">https://doi.org/10.21203/rs.3.rs-3434061/v1</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 29 2024</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Matteo Rossi. et al., Adaptive introgression of a visual preference gene.<i><b> Science</b></i>, 2024, 383,1368-1373.
-    <br><a href="https://www.science.org/doi/10.1126/science.adj9201">doi: 10.1126/science.adj9201.</a>
-</p> 
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Matteo Rossi. et al., Adaptive introgression of a visual preference gene. <i>Science</i>, 2024, 383, 1368-1373.</p>
+    <a href="https://doi.org/10.1126/science.adj9201">https://doi.org/10.1126/science.adj9201</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Mar 22 2024</h3>
-    Presenter: Lipeng Kang<br>
-    Paper: Peng-Fei Ma, Yun-Long Liu, Cen Guo. et al., Genome assemblies of 11 bamboo species highlight diversification induced by dynamic subgenome dominance.<i><b> Nature Genetics</b></i>, 2024.
-    <br><a href="https://www.nature.com/articles/s41588-024-01683-0#citeas">doi: https://doi.org/10.1038/s41588-024-01683-0.</a>
-</p> 
+    <p>Presenter: Lipeng Kang</p>
+    <p>Paper: Peng-Fei Ma, Yun-Long Liu, Cen Guo. et al., Genome assemblies of 11 bamboo species highlight diversification induced by dynamic subgenome dominance. <i>Nature Genetics</i>, 2024.</p>
+    <a href="https://doi.org/10.1038/s41588-024-01683-0">https://doi.org/10.1038/s41588-024-01683-0</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Mar 14 2024</h3>
-    Presenter: Zhiliang Zhang<br>
-    Paper: Van de Weyer, A.-L., Monteiro, F., Furzer, O.J. et al., A Species-Wide Inventory of NLR Genes and Alleles in Arabidopsis thaliana.<i><b> Cell</b></i>, 2019, 178, 1260-1272.
-    <br><a href="https://www.sciencedirect.com/science/article/pii/S0092867419308372">doi: 10.1016/j.cell.2019.07.038.</a>
-</p> 
+    <p>Presenter: Zhiliang Zhang</p>
+    <p>Paper: Van de Weyer, A.-L., Monteiro, F., Furzer, O.J. et al., A Species-Wide Inventory of NLR Genes and Alleles in Arabidopsis thaliana. <i>Cell</i>, 2019, 178, 1260-1272.</p>
+    <a href="https://doi.org/10.1016/j.cell.2019.07.038">https://doi.org/10.1016/j.cell.2019.07.038</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Mar 08 2024</h3>
-    Presenter: Da Zheng<br>
-    Paper: Alejandro Couce. et al., Changing fitness effects of mutations through long-term bacterial evolution.<i><b> Science</b></i>, 2024, 383,eadd1417.
-    <br><a href="https://www.science.org/doi/10.1126/science.add1417">doi: 10.1126/science.add1417</a>
-</p> 
+    <p>Presenter: Da Zheng</p>
+    <p>Paper: Alejandro Couce. et al., Changing fitness effects of mutations through long-term bacterial evolution. <i>Science</i>, 2024, 383, eadd1417.</p>
+    <a href="https://doi.org/10.1126/science.add1417">https://doi.org/10.1126/science.add1417</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Mar 01 2024</h3>
-    Presenter: Yaqin Hu<br>
-    Paper: Pascal O. Title. et al., The macroevolutionary singularity of snakes.<i><b> Science</b></i>, 2024, 383,918-923.
-    <br><a href="https://www.science.org/doi/10.1126/science.adh2449">doi: 10.1126/science.adh2449</a>
-</p> 
+    <p>Presenter: Yaqin Hu</p>
+    <p>Paper: Pascal O. Title. et al., The macroevolutionary singularity of snakes. <i>Science</i>, 2024, 383, 918-923.</p>
+    <a href="https://doi.org/10.1126/science.adh2449">https://doi.org/10.1126/science.adh2449</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Feb 23 2024</h3>
-    Presenter: You Qing<br>
-    Paper: Yu Xu, Scott C. Ritchie, Yujian Liang. et al., An atlas of genetic scores to predict multi-omic traits.<i><b> Nature</b></i>, 2023, 616, 123–131.
-    <br><a href="https://www.nature.com/articles/s41586-023-05844-9">doi: https://doi.org/10.1038/s41586-023-05844-9</a>
-</p> 
+    <p>Presenter: You Qing</p>
+    <p>Paper: Yu Xu, Scott C. Ritchie, Yujian Liang. et al., An atlas of genetic scores to predict multi-omic traits. <i>Nature</i>, 2023, 616, 123–131.</p>
+    <a href="https://doi.org/10.1038/s41586-023-05844-9">https://doi.org/10.1038/s41586-023-05844-9</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Jan 25 2024</h3>
-        Presenter: Jun Xu<br>
-        Paper: Jinyan Teng, Yahui Gao, Hongwei Yin. et al., A compendium of genetic regulatory effects across pig tissues.<i><b> Nature Genetics</b></i>, 2024, 56, 112–123.
-        <br><a href="https://www.nature.com/articles/s41588-023-01585-7#citeas">doi: https://doi.org/10.1038/s41588-023-01585-7</a>
-</p>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: Jinyan Teng, Yahui Gao, Hongwei Yin. et al., A compendium of genetic regulatory effects across pig tissues. <i>Nature Genetics</i>, 2024, 56, 112–123.</p>
+    <a href="https://doi.org/10.1038/s41588-023-01585-7">https://doi.org/10.1038/s41588-023-01585-7</a>
+</div>
 
-<br>
-<hr class="line">
-<br>
-     
-<p>
-<h3>Jan 12 2024</h3>
-    Presenter: Bingjie Zhu<br>
-    Paper: Franziska Saul, Mathias Scharmann, Takanori Wakatake. et al., Subgenome dominance shapes novel gene evolution in the decaploid pitcher plant Nepenthes gracilis.<i><b> Nature Plants</b></i>, 2023, 9, 2000–2015.
-    <br><a href="https://www.nature.com/articles/s41477-023-01562-2">doi: https://doi.org/10.1038/s41477-023-01562-2</a>
-</p>
-           <hr class="line">
+<!-- 2023 Journal Club Data Start -->
+<div class="jc-entry">
+    <h3>Jan 12 2024</h3>
+    <p>Presenter: Bingjie Zhu</p>
+    <p>Paper: Franziska Saul, Mathias Scharmann, Takanori Wakatake. et al., Subgenome dominance shapes novel gene evolution in the decaploid pitcher plant Nepenthes gracilis. <i>Nature Plants</i>, 2023, 9, 2000–2015.</p>
+    <a href="https://www.nature.com/articles/s41477-023-01562-2">https://doi.org/10.1038/s41477-023-01562-2</a>
+</div>
 
-<h2>2023</h2>
-<p>
+<div class="jc-entry">
     <h3>Dec 22 2023</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Songpeng Zu, Yang Eric Li, Kangli Wang. et al., Single-cell analysis of chromatin accessibility in the adult mouse brain.<i><b>Nature</b></i>, 2023, 624, 378–389.
-    <br><a href="https://doi.org/10.1038/s41586-023-06824-9">doi: https://doi.org/10.1038/s41586-023-06824-9</a>
-</p> 
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Songpeng Zu, Yang Eric Li, Kangli Wang. et al., Single-cell analysis of chromatin accessibility in the adult mouse brain. <i>Nature</i>, 2023, 624, 378–389.</p>
+    <a href="https://doi.org/10.1038/s41586-023-06824-9">https://doi.org/10.1038/s41586-023-06824-9</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Dec 15 2023</h3>
-    Presenter: Zelin Niu<br>
-    Paper: Xiaozhong Wang, Zhengxia Dou, Shi Feng. et al., Global food nutrients analysis reveals alarming gaps and daunting challenges.<i><b> Nat Food</b></i>, 2023, 4, 1007–1017.
-    <br><a href="https://doi.org/10.1038/s43016-023-00851-5">doi: https://doi.org/10.1038/s43016-023-00851-5</a>
-</p> 
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Xiaozhong Wang, Zhengxia Dou, Shi Feng. et al., Global food nutrients analysis reveals alarming gaps and daunting challenges. <i>Nat Food</i>, 2023, 4, 1007–1017.</p>
+    <a href="https://doi.org/10.1038/s43016-023-00851-5">https://doi.org/10.1038/s43016-023-00851-5</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Dec 08 2023</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Barley AJ, Nieto-Montes de Oca A, Manríquez-Morán NL, Thomson RC. The evolutionary network of whiptail lizards reveals predictable outcomes of hybridization.<i><b>Science</b></i>, 2022, 377(6607):773-777.
-    <br><a href="https://www.science.org/doi/10.1126/science.abn1593?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.abn1593</a>
-</p> 
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Barley AJ, Nieto-Montes de Oca A, Manríquez-Morán NL, Thomson RC. The evolutionary network of whiptail lizards reveals predictable outcomes of hybridization. <i>Science</i>, 2022, 377(6607):773-777.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abn1593">https://doi.org/10.1126/science.abn1593</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Dec 01 2023</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Meier JI, McGee MD, Marques DA, Mwaiko S, Kishe M, Wandera S, Neumann D, Mrosso H, Chapman LJ, Chapman CA, Kaufman L, Taabu-Munyaho A, Wagner CE, Bruggmann R, Excoffier L, Seehausen O. Cycles of fusion and fission enabled rapid parallel adaptive radiations in African cichlids.<i><b> Science</b></i>, 2023, 29;381(6665):eade2833.
-    <br><a href="https://www.science.org/doi/10.1126/science.ade2833?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.ade28333</a>
-</p> 
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Meier JI, McGee MD, Marques DA, Mwaiko S, Kishe M, Wandera S, Neumann D, Mrosso H, Chapman LJ, Chapman CA, Kaufman L, Taabu-Munyaho A, Wagner CE, Bruggmann R, Excoffier L, Seehausen O. Cycles of fusion and fission enabled rapid parallel adaptive radiations in African cichlids. <i>Science</i>, 2023, 29;381(6665):eade2833.</p>
+    <a href="https://www.science.org/doi/10.1126/science.ade2833">https://doi.org/10.1126/science.ade2833</a>
+</div>
 
-
-<p>
+<div class="jc-entry">
     <h3>Nov 24 2023</h3>
-    Presenter: Jijin Zhang<br>
-    Paper: Horton CA, Alexandari AM, Hayes MGB, Marklund E, Schaepe JM, Aditham AK, Shah N, Suzuki PH, Shrikumar A, Afek A, Greenleaf WJ, Gordân R, Zeitlinger J, Kundaje A, Fordyce PM. Short tandem repeats bind transcription factors to tune eukaryotic gene expression.<i><b> Science</b></i>, 2023, 22;381(6664):eadd1250.
-    <br><a href="https://www.science.org/doi/10.1126/science.add1250?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.add1250</a>
-</p> 
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Horton CA, Alexandari AM, Hayes MGB, Marklund E, Schaepe JM, Aditham AK, Shah N, Suzuki PH, Shrikumar A, Afek A, Greenleaf WJ, Gordân R, Zeitlinger J, Kundaje A, Fordyce PM. Short tandem repeats bind transcription factors to tune eukaryotic gene expression. <i>Science</i>, 2023, 22;381(6664):eadd1250.</p>
+    <a href="https://www.science.org/doi/10.1126/science.add1250">https://doi.org/10.1126/science.add1250</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Nov 17 2023</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Poppenwimer T, Mayrose I, DeMalach N. Revising the global biogeography of annual and perennial plants.<i><b> Nature</b></i>, 2023, 624(7990):109-114.
-    <br><a href="https://www.nature.com/articles/s41586-023-06644-x">doi: 10.1038/s41586-023-06644-x</a>
-</p> 
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Poppenwimer T, Mayrose I, DeMalach N. Revising the global biogeography of annual and perennial plants. <i>Nature</i>, 2023, 624(7990):109-114.</p>
+    <a href="https://www.nature.com/articles/s41586-023-06644-x">https://doi.org/10.1038/s41586-023-06644-x</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Nov 10 2023</h3>
-    Presenter: Song Xu<br>
-    Paper: Jiaqi You, Zhenping Liu, Zhengyang Qi. et al., Regulatory controls of duplicated gene expression during fiber development in allotetraploid cotton.<i><b> Nature Genetics</b></i>, 2023, 55, 1987–1997 
-    <br><a href="https://www.nature.com/articles/s41588-023-01530-8#citeas">doi: https://doi.org/10.1038/s41588-023-01530-8</a>
-</p> 
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Jiaqi You, Zhenping Liu, Zhengyang Qi. et al., Regulatory controls of duplicated gene expression during fiber development in allotetraploid cotton. <i>Nature Genetics</i>, 2023, 55, 1987–1997.</p>
+    <a href="https://www.nature.com/articles/s41588-023-01530-8">https://doi.org/10.1038/s41588-023-01530-8</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Oct 27 2023</h3>
-    Presenter: Yafei Guo<br>
-    Paper: Bernatchez, L., Ferchaud, AL., Berger, C.S. et al., Genomics for monitoring and understanding species responses to global climate change.<i><b> Nature Reviews Genetics</b></i>, 2023.
-    <br><a href="https://www.nature.com/articles/s41576-023-00657-y#citeas">doi: https://doi.org/10.1038/s41576-023-00657-y</a>
-</p>
+    <p>Presenter: Yafei Guo</p>
+    <p>Paper: Bernatchez, L., Ferchaud, AL., Berger, C.S. et al., Genomics for monitoring and understanding species responses to global climate change. <i>Nature Reviews Genetics</i>, 2023.</p>
+    <a href="https://www.nature.com/articles/s41576-023-00657-y">https://doi.org/10.1038/s41576-023-00657-y</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Oct 20 2023</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Shifeng Cheng, Cong Feng, Luzie U. Wingen. et al., Harnessing Landrace Diversity Empowers Wheat Breeding for Climate Resilience.<i><b> bioRxiv</b></i>, 2023.
-    <br><a href="https://www.biorxiv.org/content/10.1101/2023.10.04.560903v1">doi: https://doi.org/10.1101/2023.10.04.560903</a>
-</p>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Shifeng Cheng, Cong Feng, Luzie U. Wingen. et al., Harnessing Landrace Diversity Empowers Wheat Breeding for Climate Resilience. <i>bioRxiv</i>, 2023.</p>
+    <a href="https://www.biorxiv.org/content/10.1101/2023.10.04.560903v1">https://doi.org/10.1101/2023.10.04.560903</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Sep 22 2023</h3>
-    Presenter: Lipeng Kang<br>
-    Paper: Patrick F. Sullivan et al.,, Leveraging base-pair mammalian constraint to understand genetic variation and human disease.<i><b> Science</b></i>, 2023. 380,eabn2937.
-    <br><a href="https://www.science.org/doi/10.1126/science.abn2937">doi: 10.1126/science.abn2937</a>
-</p>
+    <p>Presenter: Lipeng Kang</p>
+    <p>Paper: Patrick F. Sullivan et al.,, Leveraging base-pair mammalian constraint to understand genetic variation and human disease. <i>Science</i>, 2023. 380, eabn2937.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abn2937">https://doi.org/10.1126/science.abn2937</a>
+</div>
 
-
-<p>
+<div class="jc-entry">
     <h3>Sep 15 2023</h3>
-    Presenter: Zhiliang Zhang<br>
-    Paper: Sergey Aganezov et al.,, A complete reference genome improves analysis of human genetic variation.<i><b>Science</b></i>, 2022, 376,eabl3533.
-    <br><a href="https://www.science.org/doi/10.1126/science.abl3533?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.abl3533</a>
-</p> 
+    <p>Presenter: Zhiliang Zhang</p>
+    <p>Paper: Sergey Aganezov et al.,, A complete reference genome improves analysis of human genetic variation. <i>Science</i>, 2022, 376, eabl3533.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abl3533">https://doi.org/10.1126/science.abl3533</a>
+</div>
 
-<p>
+<div class="jc-entry">
     <h3>Aug 25 2023</h3>
-    Presenter: You Qing <br>
-    Paper: Hong Wu et al.,, Hybrid origin of a primate, the gray snub-nosed monkey.<i><b>Science</b></i>, 2022, 380,eabl4997.
-    <br><a href="https://www.science.org/doi/abs/10.1126/science.abl4997?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.abl4997</a>
-</p> 
-<p>
+    <p>Presenter: You Qing</p>
+    <p>Paper: Hong Wu et al.,, Hybrid origin of a primate, the gray snub-nosed monkey. <i>Science</i>, 2022, 380, eabl4997.</p>
+    <a href="https://www.science.org/doi/abs/10.1126/science.abl4997">https://doi.org/10.1126/science.abl4997</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jul 21 2023</h3>
-    Presenter: Yaqin Hu<br>
-    Paper: Matthew J. Christmas et al.,, Evolutionary constraint and innovation across hundreds of placental mammals.<i><b>Science</b></i>, 2023, 380,eabn3943.
-    <br><a href="https://www.science.org/doi/abs/10.1126/science.abn3943?url_ver=Z39.88-2003&rfr_id=ori:rid:crossref.org&rfr_dat=cr_pub%20%200pubmed">doi: 10.1126/science.abn3943</a>
-</p> 
-<p>
+    <p>Presenter: Yaqin Hu</p>
+    <p>Paper: Matthew J. Christmas et al.,, Evolutionary constraint and innovation across hundreds of placental mammals. <i>Science</i>, 2023, 380, eabn3943.</p>
+    <a href="https://www.science.org/doi/abs/10.1126/science.abn3943">https://doi.org/10.1126/science.abn3943</a>
+</div>
+
+<div class="jc-entry">
     <h3>Jul 14 2023</h3>
-    Presenter: Jun Xu<br>
-    Paper: John A. Morris et al.,, Discovery of target genes and pathways at GWAS loci by pooled single-cell CRISPR screens. <i><b>Science</b></i>, 2023, 380,eadh7699.
-    <br><a href="https://www.science.org/doi/10.1126/science.adh7699">doi: 10.1126/science.adh7699</a>
-</p> 
-<p>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: John A. Morris et al.,, Discovery of target genes and pathways at GWAS loci by pooled single-cell CRISPR screens. <i>Science</i>, 2023, 380, eadh7699.</p>
+    <a href="https://www.science.org/doi/10.1126/science.adh7699">https://doi.org/10.1126/science.adh7699</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 14 2023</h3>
-    Presenter: Bingjie Zhu<br>
-    Paper: Novakovsky, G., Dexter, N., Libbrecht, M.W. et al., Obtaining genetics insights from deep learning via explainable artificial intelligence. <i><b>Nature Reviews Genetics</b></i>, 2023, 24:125–137.
-    <br><a href="https://www.nature.com/articles/s41576-022-00532-2">doi: https://doi.org/10.1038/s41576-022-00532-2</a>
-</p>  
-<p>
+    <p>Presenter: Bingjie Zhu</p>
+    <p>Paper: Novakovsky, G., Dexter, N., Libbrecht, M.W. et al., Obtaining genetics insights from deep learning via explainable artificial intelligence. <i>Nature Reviews Genetics</i>, 2023, 24:125–137.</p>
+    <a href="https://www.nature.com/articles/s41576-022-00532-2">https://doi.org/10.1038/s41576-022-00532-2</a>
+</div>
+
+<div class="jc-entry">
     <h3>Apr 07 2023</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Yang Dong et al.,, Dual domestications and origin of traits in grapevine evolution. <i><b>Science</b></i>, 2023, 379:892-901.
-    <br><a href="https://www.science.org/doi/10.1126/science.add8655">doi: 10.1126/science.add8655</a>
-</p>     
-<p>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Yang Dong et al.,, Dual domestications and origin of traits in grapevine evolution. <i>Science</i>, 2023, 379:892-901.</p>
+    <a href="https://www.science.org/doi/10.1126/science.add8655">https://doi.org/10.1126/science.add8655</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 24 2023</h3>
-    Presenter: Zelin Niu<br>
-    Paper: Chenkun Yang, Shuangqian Shen, Shen Zhou, Yufei Li, Yuyuan Mao, Junjie Zhou, Yuheng Shi, Longxu An, Qianqian Zhou, Wenju Peng, Yuanyuan Lyu, Xuemei Liu, Wei Chen, Shouchuang Wang, Lianghuan Qu, Xianqing Liu, Alisdair R. Fernie, Jie Luo,
-Rice metabolic regulatory network spanning the entire life cycle. <i><b>Molecular Plant</b></i>, 2020, 15(2):258-275.
-    <br><a href="https://www.sciencedirect.com/science/article/pii/S1674205221004111">doi: https://doi.org/10.1016/j.molp.2021.10.005</a>
-</p>            
-<p>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Chenkun Yang et al., Rice metabolic regulatory network spanning the entire life cycle. <i>Molecular Plant</i>, 2020, 15(2):258-275.</p>
+    <a href="https://www.sciencedirect.com/science/article/pii/S1674205221004111">https://doi.org/10.1016/j.molp.2021.10.005</a>
+</div>
+
+<div class="jc-entry">
     <h3>Mar 03 2023</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Gualberto JM, Newton KJ. Plant Mitochondrial Genomes: Dynamics and Mechanisms of Mutation. <i><b>Annual Review of Plant Biology</b></i>,2017, 68:225-252.
-    <br><a href="https://www.annualreviews.org/doi/10.1146/annurev-arplant-043015-112232?url_ver=Z39.88-2003&rfr_id=ori%3Arid%3Acrossref.org&rfr_dat=cr_pub++0pubmed">doi: 10.1146/annurev-arplant-043015-112232.</a>
-</p>        
- <p>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Gualberto JM, Newton KJ. Plant Mitochondrial Genomes: Dynamics and Mechanisms of Mutation. <i>Annual Review of Plant Biology</i>, 2017, 68:225-252.</p>
+    <a href="https://www.annualreviews.org/doi/10.1146/annurev-arplant-043015-112232">https://doi.org/10.1146/annurev-arplant-043015-112232</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 24 2023</h3>
-    Presenter: Hangyuan Cheng<br>
-    Paper: Zhang, X. et al., Genomes of the Banyan Tree and Pollinator Wasp Provide Insights into Fig-Wasp Coevolution. <i><b>Cell</b></i>.2020, 183, 875-889.e17.
-    <br><a href="https://www.sciencedirect.com/science/article/pii/S009286742031240X">doi: https://doi.org/10.1016/j.cell.2020.09.043</a>
-</p>
- <p>
+    <p>Presenter: Hangyuan Cheng</p>
+    <p>Paper: Zhang, X. et al., Genomes of the Banyan Tree and Pollinator Wasp Provide Insights into Fig-Wasp Coevolution. <i>Cell</i>, 2020, 183, 875-889.e17.</p>
+    <a href="https://www.sciencedirect.com/science/article/pii/S009286742031240X">https://doi.org/10.1016/j.cell.2020.09.043</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 17 2023</h3>
-    Presenter: Hua Zhang<br>
-    Paper: Kurki, M.I., Karjalainen, J., Palta, P. et al., FinnGen provides genetic insights from a well-phenotyped isolated population. <i><b>Nature</b></i>, 2022, 613, 508–518. 
-    <br><a href="https://www.nature.com/articles/s41586-022-05473-8">doi: https://doi.org/10.1038/s41586-022-05473-8</a>
-</p>
-<p>
+    <p>Presenter: Hua Zhang</p>
+    <p>Paper: Kurki, M.I., Karjalainen, J., Palta, P. et al., FinnGen provides genetic insights from a well-phenotyped isolated population. <i>Nature</i>, 2022, 613, 508–518.</p>
+    <a href="https://www.nature.com/articles/s41586-022-05473-8">https://doi.org/10.1038/s41586-022-05473-8</a>
+</div>
+
+<div class="jc-entry">
     <h3>Feb 10 2023</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Tauras P. Vilgalys et al., , 
-    Selection against admixture and gene regulatory divergence in a long-term primate field study. <i><b>Science</b></i>,2022, 377,635-641.
-    <br><a href="https://www.science.org/doi/10.1126/science.abm4917">doi: 10.1126/science.abm4917</a>
-</p>
-<br>
-<hr class="line">
-<br>
-<h2>2022</h2>
-<p>
-    <h3>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Tauras P. Vilgalys et al., Selection against admixture and gene regulatory divergence in a long-term primate field study. <i>Science</i>, 2022, 377, 635-641.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abm4917">https://doi.org/10.1126/science.abm4917</a>
+</div>
+
+<!-- 2022 Journal Club Data Start -->
+<div class="jc-entry">
     <h3>Dec 30 2022</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Martin G, Hélène C, Antoine N. et al., 
-    Competition and coevolution drive the evolution and the diversiﬁcation of CRISPR immunity. <i><b>bioRxiv</b></i>, 2022.
-    <br><a href="https://doi.org/10.1101/2021.11.12.468349">doi: https://doi.org/10.1101/2021.11.12.468349</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Martin G, Hélène C, Antoine N. et al., Competition and coevolution drive the evolution and the diversiﬁcation of CRISPR immunity. <i>bioRxiv</i>, 2022.</p>
+    <a href="https://doi.org/10.1101/2021.11.12.468349">https://doi.org/10.1101/2021.11.12.468349</a>
+</div>
+
+<div class="jc-entry">
     <h3>Dec 23 2022</h3>
-    Presenter: Jijin Zhang<br>
-    Paper: Ebler, J., Ebert, P., Clarke, W.E. et al., 
-    Pangenome-based genome inference allows efficient and accurate genotyping across a wide spectrum of variant classes. <i><b>Nature Genetics</b></i>, 2022, 54:518–525.
-    <br><a href="https://www.nature.com/articles/s41588-022-01043-w#citeas">doi: https://doi.org/10.1038/s41588-022-01043-w</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Ebler, J., Ebert, P., Clarke, W.E. et al., Pangenome-based genome inference allows efficient and accurate genotyping across a wide spectrum of variant classes. <i>Nature Genetics</i>, 2022, 54:518–525.</p>
+    <a href="https://doi.org/10.1038/s41588-022-01043-w">https://doi.org/10.1038/s41588-022-01043-w</a>
+</div>
+
+<div class="jc-entry">
     <h3>Dec 16 2022</h3>
-    Presenter: Song Xu<br>
-    Paper: Replogle JM, Saunders RA, Pogson AN, et al., 
-    Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq. <i><b>Cell</b></i>, 2022, 185(14):2559-2575.
-    <br><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9380471/">doi: https://doi.org/10.1016/j.cell.2022.05.013</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Replogle JM, Saunders RA, Pogson AN, et al., Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq. <i>Cell</i>, 2022, 185(14):2559-2575.</p>
+    <a href="https://doi.org/10.1016/j.cell.2022.05.013">https://doi.org/10.1016/j.cell.2022.05.013</a>
+</div>
+
+<div class="jc-entry">
     <h3>Dec 09 2022</h3>
-    Presenter: Daxing Xu<br>
-    Paper: Wohns, A. W. et al., 
-    A unified genealogy of modern and ancient genomes <i><b>Science</b></i>, 2022, 375(6583):8264.
-    <br><a href="https://www.science.org/doi/10.1126/science.abi8264">doi: https://www.science.org/doi/10.1126/science.abi8264</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Daxing Xu</p>
+    <p>Paper: Wohns, A. W. et al., A unified genealogy of modern and ancient genomes. <i>Science</i>, 2022, 375(6583):8264.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abi8264">https://www.science.org/doi/10.1126/science.abi8264</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 25 2022</h3>
-    Presenter: Yafei Guo<br>
-    Paper: Bosse M, Spurgin L, Laine V. et al., 
-    Recent natural selection causes adaptive evolution of an avian polygenic trait <i><b>Science</b></i>, 2017, 358(6361):365-368.
-    <br><a href="https://www.science.org/doi/10.1126/science.aal3298">doi: https://www.science.org/doi/10.1126/science.aal3298</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Yafei Guo</p>
+    <p>Paper: Bosse M, Spurgin L, Laine V. et al., Recent natural selection causes adaptive evolution of an avian polygenic trait. <i>Science</i>, 2017, 358(6361):365-368.</p>
+    <a href="https://www.science.org/doi/10.1126/science.aal3298">https://www.science.org/doi/10.1126/science.aal3298</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 18 2022</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Yengo, L., Vedantam, S., Marouli, E. et al., 
-    A saturated map of common genetic variants associated with human height <i><b>Nature</b></i>, 2022, 610:704–712.
-    <br><a href="https://doi.org/10.1038/s41586-022-05275-y">doi: https://doi.org/10.1038/s41586-022-05275-y</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Yengo, L., Vedantam, S., Marouli, E. et al., A saturated map of common genetic variants associated with human height. <i>Nature</i>, 2022, 610:704–712.</p>
+    <a href="https://doi.org/10.1038/s41586-022-05275-y">https://doi.org/10.1038/s41586-022-05275-y</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 11 2022</h3>
-    Presenter: Lipeng Kang<br>
-    Paper: Collins, R.L., Brand, H., Karczewski, K.J. et al.,
-    Origins and evolution of extreme life span in Pacific Ocean rockfishes <i><b>Science</b></i>, 2021, 374(6569):842-847.
-    <br><a href="https://www.science.org/doi/full/10.1126/science.abg5332 ">doi: https://www.science.org/doi/full/10.1126/science.abg5332</a>
-</p>
-<p>
-    <h3>
+    <p>Presenter: Lipeng Kang</p>
+    <p>Paper: Collins, R.L., Brand, H., Karczewski, K.J. et al., Origins and evolution of extreme life span in Pacific Ocean rockfishes. <i>Science</i>, 2021, 374(6569):842-847.</p>
+    <a href="https://www.science.org/doi/full/10.1126/science.abg5332">https://www.science.org/doi/full/10.1126/science.abg5332</a>
+</div>
+
+<div class="jc-entry">
     <h3>Nov 04 2022</h3>
-    Presenter: Zhiliang Zhang<br>
-    Paper: Collins, R.L., Brand, H., Karczewski, K.J. et al.,
-    A structural variation reference for medical and population genetics <i><b>Nature</b></i>, 2020, 581:444–451.
-    <br><a href="https://doi.org/10.1038/s41586-020-2287-8">doi: https://doi.org/10.1038/s41586-020-2287-8</a>
-</p>
-<p>
-    <h3>
-    <h3>Oct, 28 2022</h3>
-    Presenter: Jun Xu<br>
-    Paper: Lin Z, Liu Y, Liu S. et al., 
-    Nested epistasis enhancer networks for robust genome regulation <i><b>Science</b></i>, 2022, 377-(6610):1077-1085.
-    <br><a href="https://www.science.org/doi/10.1126/science.abk3512">doi: https://www.science.org/doi/10.1126/science.abk3512</a>
-</p>
-<p>
-    <h3>
-    <h3>Sep 30, 2022</h3>
-    Presenter: Bingjie Zhu<br>
-    Paper: Liu, S., Gao, Y., Canela-Xandri, O. et al., 
-    A multi-tissue atlas of regulatory variants in cattle <i><b>Nature Genetics</b></i>, 2022, 54:1438-1447.
-    <br><a href="https://doi.org/10.1038/s41588-022-01153-5">doi: https://doi.org/10.1038/s41588-022-01153-5</a>
-</p>
-<p>
-    <h3>
-    <h3>Sep 23, 2022</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Wang, Z., Emmerich, A., Pillon, N.J. et al., 
-    Genome-wide association analyses of physical activity and sedentary behavior provide insights into underlying mechanisms and roles in disease prevention <i><b>Nature Genetics</b></i>, 2022, 54:1332–1344.
-    <br><a href="https://doi.org/10.1038/s41588-022-01165-1">doi: https://doi.org/10.1038/s41588-022-01165-1/a></a>
-</p>
-<p>
-    <h3>
-    <h3>Sep 16, 2022</h3>
-    Presenter: Zelin Niu<br>
-    Paper: van der Wijst, M.G.P., de Vries, D.H., Brugge, H. et al., 
-    An integrative approach for building personalized gene regulatory networks for precision medicine <i><b>Genome Med</b></i>, 2018, 10:96.
-    <br><a href="https://doi.org/10.1186/s13073-018-0608-4">doi: https://doi.org/10.1186/s13073-018-0608-4</a>
-</p>
-<p>
-    <h3>Sep 9, 2022</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Heyduk, K., Moreno-Villena, J.J., Gilman, I. et al., The genetics of convergent evolution: insights from plant photosynthesis 
-     <i><b>Nat Rev Genet</b></i>, 2019, 20:485–493.
-     <br><a href="https://doi.org/10.1038/s41576-019-0107-5">doi: https://doi.org/10.1038/s41576-019-0107-5</a>
-</p>
-<p>
-    <h3>Aug 19, 2022</h3>
-    Presenter: Hua Zhang<br>
-    Paper: Wang S, Teng D, Li X, et al., The evolution and diversification of oakleaf butterflies <i><b>Cell</b></i>, 2022, 185(17):3138-3152.
-    <br><a href="https://doi.org/10.1016/j.cell.2022.06.042">doi: https://doi.org/10.1016/j.cell.2022.06.042</a>
-</p>
-<p>
-    <h3>Aug 12, 2022</h3>
-    Presenter: Bingjie Zhu <br>
-    Paper: Ganna A, Verweij K J H, Nivard M G, et al., 
-    Large-scale GWAS reveals insights into the genetic architecture of same-sex sexual behavior <i><b>Science</b></i>, 2019, 365(6456).
-    <br><a href="DOI: 10.1126/science.aat7693">doi: 10.1126/science.aat7693</a>
-</p>
-<p>
-    <h3>Aug 5, 2022</h3>
-    Presenter: Luyan Tian<br>
-    Paper: Morrill K, Hekman J, Li X, et al., Ancestry-inclusive dog genomics challenges popular breed stereotypes <i><b>Science</b></i>, 2022, 376(6592).
-    <br><a href="DOI: 10.1126/science.abk063">doi: 10.1126/science.abk063</a>
-</p>
-<p>
-    <h3>Jul 22, 2022</h3>
-    Presenter: Xueting Hu<br>
-    Paper: Hu, G., Feng, J., Xiang, X. et al., Two divergent haplotypes from a highly heterozygous lychee genome suggest independent domestication events for early and late-maturing cultivars. <i><b>Nature Genetics</b></i>, 2022, 54:73–83.
-    <br><a href="https://doi.org/10.1038/s41588-021-00971-3">doi: https://doi.org/10.1038/s41588-021-00971-3</a>
-</p>
-<p>
-    <h3>Jul 22, 2022</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Hsieh P, Vollger M R, Dang V, et al., Adaptive archaic introgression of copy number variants and the discovery of previously unknown human genes <i><b>Science</b></i>, 2019, 366(6463).
-    <br><a href="DOI: 10.1126/science.aax208">doi: 10.1126/science.aax208</a>
-</p>
-<p>
-    <h3>Jul 8, 2022</h3>
-    Presenter: Xuebo Zhao<br>
-    Paper: Shen, X., Song, S., Li, C. et al., Synonymous mutations in representative yeast genes are mostly strongly non-neutral <i><b>Nature</b></i>, 2022, 606:725–731.
-    <br><a href="https://doi.org/10.1038/s41586-022-04823-w">doi: https://doi.org/10.1038/s41586-022-04823-w</a>
-</p>
-<p>
-    <h3>May 13, 2022</h3>
-    Presenter: Xiaohan Yang<br>
-    Paper: Abell N S, DeGorter M K, Gloudemans M J, et al., Multiple causal variants underlie genetic associations in humans <i><b>Science</b></i>, 2022, 375(6586): 1247-1254.
-    <br><a href="DOI: 10.1126/science.abj5117">doi: 10.1126/science.abj5117</a>
-</p>
-<p>
-    <h3>May 6, 2022</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Bradley L, M. D M, Alexandre M, et al., The pan-genome effector-triggered immunity landscape of a host-pathogen interaction <i><b>Science</b></i>, 2020, 367(6479): 763-768.
-    <br><a href="https://doi.org/10.1038/s41586-022-04549-9">doi: https://doi.org/10.1038/s41586-022-04549-9</a>
-</p>
-<p>
-    <h3>Apr 30, 2022</h3>
-    Presenter: Daxing Xu <br>
-    Paper: Gardner, E.J., Neville, M.D.C., Samocha, K.E. et al., Reduced reproductive success is associated with selective constraint on human genes. <i><b>Nature</b></i>, 2022, 603: 858–863.
-    <br><a href="DOI: 10.1126/science.aa">doi:  10.1126/science.aa</a>
-</p>
-<p>
-    <h3>Apr 15, 2022</h3>
-    Presenter: Aoyue Bi<br>
-    Paper: Chen, S. et al., A genome-wide mutational constraint map quantified from variation in 76,156 human genomes. <i><b>bioRxiv</b></i> 2022.03.20.485034
-    <br><a href="https://doi.org/10.1101/2022.03.20.485034">doi: https://doi.org/10.1101/2022.03.20.485034</a>
-</p>
-<p>
-    <h3>Apr 08, 2022</h3>
-    Presenter: Yafei Guo<br>
-    Paper: Sohail M, Vakhrusheva O A, Sul J H, et al., Negative selection in humans and fruit flies involves synergistic epistasis. <i><b>Science</b></i>, 2017, 356(6337): 539-542.
-    <br><a href="https://www.science.org/doi/10.1126/science.aah5238">doi: https://www.science.org/doi/10.1126/science.aah5238</a>
-</p>
-<p>
-    <h3>Apr 01, 2022</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Santangelo J S, Ness R W, Cohan B, et al., Global urban environmental change drives adaptation in white clover. <i><b>Science</b></i>, 2022, 375(6586): 1275-1281.
-    <br><a href="https://www.science.org/doi/10.1126/science.abk0989">doi: https://www.science.org/doi/10.1126/science.abk0989</a>
-</p>
-<p>
-    <h3>Mar 25, 2022</h3>
-    Presenter: Jun Xu<br>
-    Paper: Vaishnav E D, De Boer C G, Molinet J, et al., The evolution, evolvability and engineering of gene regulatory DNA. <i><b>Nature</b></i>, 2022, 603(7901): 455-463.
-    <br><a href="https://doi.org/10.1038/s41586-022-04506-6">doi: https://doi.org/10.1038/s41586-022-04506-6</a>
-</p>
-<p>
-    <h3>Mar 18, 2022</h3>
-    Presenter: Lipeng Kang<br>
-    Paper: Powell D L, García-Olazábal M, Keegan M, et al., Natural hybridization reveals incompatible alleles that cause melanoma in swordtail fish. <i><b>Science</b></i>, 2020, 368(6492): 731-736.
-    <br><a href="https://www.science.org/doi/abs/10.1126/science.aba5216">doi: https://www.science.org/doi/abs/10.1126/science.aba5216</a>
-</p>
-<p>
-    <h3>Mar 04, 2022</h3>
-    Presenter: Beirui Niu<br>
-    Paper:He F, Wang W, Rutter W B, et al., Genomic variants affecting homoeologous gene expression dosage contribute to agronomic trait variation in allopolyploid wheat. <i><b>Nature Communications</b></i>, 2022, 13(1): 826.
-    <br><a href="https://doi.org/10.1038/s41467-022-28453-y">doi: https://doi.org/10.1038/s41467-022-28453-y</a>
-</p>
-<p>
-    <h3>Feb 25, 2022</h3>
-    Presenter: Zelin Niu<br>
-    Paper: Monroe J G, Srikant T, Carbonell-Bejerano P, et al., Mutation bias reflects natural selection in Arabidopsis thaliana. <i><b>Nature</b></i>, 2022, 602(7895): 101-105. 
-    <br><a href="https://doi.org/10.1038/s41586-021-04269-6">doi: https://doi.org/10.1038/s41586-021-04269-6</a>
-</p>
-<p>
-    <h3>Jan 14, 2022</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Laricchia KM, Lake NJ, Watts NA, et al., Mitochondrial DNA variation across 56,434 individuals in gnomAD. <i><b>Genome Res</b></i>. 2022, 32(3): 569-582. 
-    <br><a href="https://doi.org/10.1101/2021.07.23.453510">doi: https://doi.org/10.1101/2021.07.23.453510</a>
-</p>
-<hr class="line">
-<br>
-<h2>2021</h2>
-<p>
-    <h3>Dec 31, 2021</h3>
-    Presenter: Hangyuan Cheng<br>
-    Paper: Zheng J, Guo N, Wagner A. Selection enhances protein evolvability by increasing mutational robustness and foldability. <i><b>Science</b></i>, 2020, 370(6521).
-    <br><a href="https://www.science.org/doi/10.1126/science.abb5962">doi: https://www.science.org/doi/10.1126/science.abb5962</a>
-</p>
-<p>
-    <h3>Dec 24, 2021</h3>
-    Presenter: Hua Zhang<br>
-    Paper: Yonova-Doing E, Calabrese C, Gomez-Duran A, et al., An atlas of mitochondrial DNA genotype–phenotype associations in the UK Biobank. <i><b>Nature Genetics</b></i>, 2021, 53(7): 982-993.
-    <br><a href="https://doi.org/10.1038/s41588-021-00868-1">doi: https://doi.org/10.1038/s41588-021-00868-1</a>
-</p>
-<p>
-    <h3>Dec 10, 2021</h3>
-    Presenter: Xuebo Zhao<br>
-    Paper: Bergström A, Stringer C, Hajdinjak M, et al., Origins of modern human ancestry. <i><b>Nature</b></i>, 2021, 590(7845): 229-237.
-    <br><a href="https://doi.org/10.1038/s41586-021-03244-5">doi: https://doi.org/10.1038/s41586-021-03244-5</a>
-</p>
-<p>
-    <h3>Dec 03, 2021</h3>
-    Presenter: Jiayu Dong<br>
-    Paper: Peter B M. Admixture, Population Structure, and F-Statistics. <i><b>Genetics</b></i>, 2016, 202(4): 1485-1501.
-    <br><a href="https://doi.org/10.1534/genetics.115.183913">doi: https://doi.org/10.1534/genetics.115.183913</a>
-</p>
-<p>
-    <h3>Nov 26, 2021</h3>
-    Presenter: Liping Jiang<br>
-    Paper: Avsec Ž, Agarwal V, Visentin D, et al., Effective gene expression prediction from sequence by integrating long-range interactions. <i><b>Nature Methods</b></i>, 2021, 18(10): 1196-1203.
-    <br><a href="https://doi.org/10.1038/s41592-021-01252-x">doi: https://doi.org/10.1038/s41592-021-01252-x</a>
-</p>
-<p>
-    <h3>Nov 19, 2021</h3>
-    Presenter: Xiaohan Yang<br>
-    Paper: Bonder M J, Smail C, Gloudemans M J, et al., Identification of rare and common regulatory variants in pluripotent cells using population-scale transcriptomics. <i><b>Nature Genetics</b></i>, 2021, 53(3): 313-321.
-    <br><a href="https://doi.org/10.1038/s41588-021-00800-7">doi: https://doi.org/10.1038/s41588-021-00800-7</a>
-</p>
-<p>
-    <h3>Nov 12, 2021</h3>
-    Presenter: Song Xu<br>
-    Paper: Wong A K, Sealfon R S G, Theesfeld C L, et al., Decoding disease: from genomes to networks to phenotypes. <i><b>Nature Reviews Genetics</b></i>, 2021, 22(12): 774-790.
-    <br><a href="https://doi.org/10.1038/s41576-021-00389-x">doi: https://doi.org/10.1038/s41576-021-00389-x</a>
-</p>
-<p>
-    <h3>Nov 05, 2021</h3>
-    Presenter: Daxing Xu<br>
-    Paper: Frazer J, Notin P, Dias M, et al., Disease variant prediction with deep generative models of evolutionary data. <i><b>Nature</b></i>, 2021, 599(7883): 91-95. 
-    <br><a href="https://doi.org/10.1038/s41586-021-04043-8">doi: https://doi.org/10.1038/s41586-021-04043-8</a>
-</p>
-<p>
-    <h3>Oct 28, 2021</h3>
-    Presenter: Aoyue Bi<br>
-    Paper: Li J T, Wang Q, Huang Yang M D, et al., Parallel subgenome structure and divergent expression evolution of allo-tetraploid common carp and goldfish. <i><b>Nature Genetics</b></i>, 2021, 53(10): 1493-1503.
-    <br><a href="https://doi.org/10.1038/s41588-021-00933-9">doi: https://doi.org/10.1038/s41588-021-00933-9</a>
-</p>
-<p>
-    <h3>Sep 30,2021</h3>
-    Presenter: Ming Zhang<br>
-    Paper: Harvey M G, Bravo G A, Claramunt S, et al., The evolution of a tropical biodiversity hotspot. <i><b>Science</b></i>, 2020, 370(6522): 1343-1348.
-    <br><a href="https://www.science.org/doi/10.1126/science.aaz6970">doi: https://www.science.org/doi/10.1126/science.aaz6970</a>
-</p>
-<p>
-    <h3>Sep 24, 2021</h3>
-    Presenter: Yafei Guo<br>
-    Paper: Fuller Z L, Mocellin V J L, Morris L A, et al., Population genetics of the coral Acropora millepora: Toward genomic prediction of bleaching. <i><b>Science</b></i>, 2020, 369(6501): 4674.
-    <br><a href="https://www.science.org/doi/10.1126/science.aba4674">doi: https://www.science.org/doi/10.1126/science.aba4674</a>
-</p>
-<p>
-    <h3>Sep 17, 2021</h3>
-    Presenter: Beirui Niu<br>
-    Paper: Stitzer M C, Anderson S N, Springer N M, et al., The genomic ecosystem of transposable elements in maize. <i><b>PLOS Genetics</b></i>, 2021, 17(10): e1009768.
-    <br><a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1009768">doi: https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1009768</a>
-</p>
-<p>
-    <h3>Sep 03, 2021</h3>
-    Presenter: Xinyue Song<br>
-    Paper: Elena K, Benjamin V, N. N B A, et al., Exploring whole-genome duplicate gene retention with complex genetic interaction analysis. <i><b>Science</b></i>, 2020, 368(6498): eaaz5667. 
-    <br><a href="DOI: 10.1126/science.aaz5667">doi: 10.1126/science.aaz5667</a>
-</p>
-<p>
-    <h3>Aug 27, 2021</h3>
-    Presenter: Xuebing Qiu<br>
-    Paper: Wang S, Ore M J, Mikkelsen E K, et al., Signatures of mitonuclear coevolution in a warbler species complex. <i><b>Nature Communications</b></i>, 2021, 12(1): 4279.
-    <br><a href="https://doi.org/10.1038/s41467-021-24586-8">doi: https://doi.org/10.1038/s41467-021-24586-8</a>
-</p>
-<p>
-    <h3>Aug 20, 2021</h3>
-    Presenter:  Jun Xu<br>
-    Paper: Sheng X, Guan Y, Ma Z, et al., Mapping the genetic architecture of human traits to cell types in the kidney identifies mechanisms of disease and potential treatments. <i><b>Nature Genetics</b></i>, 2021, 53(9): 1322-1333. 
-    <br><a href="https://doi.org/10.1038/s41588-021-00909-9">doi: https://doi.org/10.1038/s41588-021-00909-9</a>
-</p>
-<p>
-    <h3>Aug 13, 2021</h3>
-    Presenter:  Yuqi Bai<br>
-    Paper: Wang M, Li Z, Zhang Y, et al., An atlas of wheat epigenetic regulatory elements reveals subgenome divergence in the regulation of development and stress responses. <i><b>Plant Cell</b></i>. 2021, 33(4): 865-881.
-    <br><a href="10.1093/plcell/koab028">doi: 10.1093/plcell/koab028</a>
-</p>
-<p>
-    <h3>Aug 06, 2021</h3>
-    Presenter:  Kaibiao Zhang<br>
-    Paper: Julca I, Ferrari C, Flores-Tornero M, et al., Comparative transcriptomic analysis reveals conserved programmes underpinning organogenesis and reproduction in land plants. <i><b>Nature Plants</b></i>, 2021, 7(8): 1143-1159. 
-    <br><a href="https://doi.org/10.1038/s41477-021-00958-2">doi: https://doi.org/10.1038/s41477-021-00958-2</a>
-</p>
-<p>
-    <h3>Jul 29, 2021</h3>
-    Presenter:  Zhengyue Sha<br>
-    Paper: Corces MR, Granja JM, Shams S, et al., The chromatin accessibility landscape of primary human cancers. <i><b>Science</b></i>. 2018, 362(6413): 1898. 
-    <br><a href="10.1126/science.aav1898">doi: 10.1126/science.aav1898</a>
-</p>
-<p>
-    <h3>Jul 16, 2021</h3>
-    Presenter:  Lipeng Kang<br>
-    Paper: Yang H, Luan Y, Liu T, et al., A map of cis-regulatory elements and 3D genome structures in zebrafish. <i><b>Nature</b></i>, 2020, 588(7837): 337-343.
-    <br><a href="https://doi.org/10.1038/s41586-020-2962-9">doi: https://doi.org/10.1038/s41586-020-2962-9</a>
-</p>
-<p>
-    <h3>Apr 23, 2021</h3>
-    Presenter:  Jijin Zhang<br>
-    Paper: Jay P, Chouteau M, Whibley A, et al., Mutation load at a mimicry supergene sheds new light on the evolution of inversion polymorphisms. <i><b>Nature Genetics</b></i>, 2021, 53(3): 288-293.
-    <br><a href="https://doi.org/10.1038/s41588-020-00771-1">doi: https://doi.org/10.1038/s41588-020-00771-1</a>
-</p>
-<p>
-    <h3>Apr 09, 2021</h3>
-    Presenter:  Zelin Niu<br>
-    Paper: Groen S C, Ćalić I, Joly-Lopez Z, et al., The strength and pattern of natural selection on gene expression in rice. <i><b>Nature</b></i>, 2020, 578(7796): 572-576.
-    <br><a href="https://doi.org/10.1038/s41586-020-1997-2">doi: https://doi.org/10.1038/s41586-020-1997-2</a>
-</p>
-<p>
-    <h3>Apr 02, 2021</h3>
-    Presenter:  Zhiliang Zhang<br>
-    Paper: Peter E, A. A P, Qihui Z, et al., Haplotype-resolved diverse human genomes and integrated analysis of structural variation. <i><b>Science</b></i>, 2021, 372(6537): eabf7117.
-    <br><a href="10.1126/science.abf7117">doi: 10.1126/science.abf7117</a>
-</p>
-<p>
-    <h3>Mar 12, 2021</h3>
-    Presenter:  Hua Zhang<br>
-    Paper: Lovell J T, MacQueen A H, Mamidi S, et al., Genomic mechanisms of climate adaptation in polyploid bioenergy switchgrass. <i><b>Nature</b></i>, 2021, 590(7846): 438-444.
-    <br><a href="https://doi.org/10.1038/s41586-020-03127-1">doi: https://doi.org/10.1038/s41586-020-03127-1</a>
-</p>
-<p>
-    <h3>Mar 05, 2021</h3>
-    Presenter:  Xuebo Zhao<br>
-    Paper: Anders B, Laurent F, Ryan S, et al., Origins and genetic legacy of prehistoric dogs. <i><b>Science</b></i>, 2020, 370(6516): 557-564.
-    <br><a href="10.1126/science.aba9572">doi: 10.1126/science.aba9572</a>
-</p>
-<p>
-    <h3>Jan 22, 2021</h3>
-    Presenter:  Liping Jiang<br>
-    Paper: Vuckovic D, Bao EL, Akbari P, et al., The Polygenic and Monogenic Basis of Blood Traits and Diseases. <i><b>Cell</b></i>. 2020, 182(5): 1214-1231.e11.
-    <br><a href="10.1016/j.cell.2020.08.008">doi: 10.1016/j.cell.2020.08.008</a>
-</p>
-<p>
-    <h3>Jan 15, 2021</h3>
-    Presenter:  Jiayu Dong<br>
-    Paper: Skov L, Coll Macià M, Sveinbjörnsson G, et al., The nature of Neanderthal introgression revealed by 27,566 Icelandic genomes. <i><b>Nature</b></i>, 2020, 582(7810): 78-83. 
-    <br><a href="https://doi.org/10.1038/s41586-020-2225-9">doi: https://doi.org/10.1038/s41586-020-2225-9</a>
-</p>
-<p>
-    <h3>Jan 08, 2021</h3>
-    Presenter:  Song Xu<br>
-    Paper: Fachal L, Aschard H, Beesley J, et al., Fine-mapping of 150 breast cancer risk regions identifies 191 likely target genes. <i><b>Nature Genetics</b></i>, 2020, 52(1): 56-73. 
-    <br><a href="https://doi.org/10.1038/s41588-019-0537-1">doi: https://doi.org/10.1038/s41588-019-0537-1</a>
-</p>
+    <p>Presenter: Zhiliang Zhang</p>
+    <p>Paper: Collins, R.L., Brand, H., Karczewski, K.J. et al., A structural variation reference for medical and population genetics. <i>Nature</i>, 2020, 581:444–451.</p>
+    <a href="https://doi.org/10.1038/s41586-020-2287-8">https://doi.org/10.1038/s41586-020-2287-8</a>
+</div>
 
+<div class="jc-entry">
+    <h3>Oct 28 2022</h3>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: Lin Z, Liu Y, Liu S. et al., Nested epistasis enhancer networks for robust genome regulation. <i>Science</i>, 2022, 377-(6610):1077-1085.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abk3512">https://www.science.org/doi/10.1126/science.abk3512</a>
+</div>
 
+<div class="jc-entry">
+    <h3>Sep 30 2022</h3>
+    <p>Presenter: Bingjie Zhu</p>
+    <p>Paper: Liu, S., Gao, Y., Canela-Xandri, O. et al., A multi-tissue atlas of regulatory variants in cattle. <i>Nature Genetics</i>, 2022, 54:1438-1447.</p>
+    <a href="https://doi.org/10.1038/s41588-022-01153-5">https://doi.org/10.1038/s41588-022-01153-5</a>
+</div>
 
-<br>
+<div class="jc-entry">
+    <h3>Sep 23 2022</h3>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Wang, Z., Emmerich, A., Pillon, N.J. et al., Genome-wide association analyses of physical activity and sedentary behavior provide insights into underlying mechanisms and roles in disease prevention. <i>Nature Genetics</i>, 2022, 54:1332–1344.</p>
+    <a href="https://doi.org/10.1038/s41588-022-01165-1">https://doi.org/10.1038/s41588-022-01165-1</a>
+</div>
 
-<br>
-<br>
-<br>
+<div class="jc-entry">
+    <h3>Sep 16 2022</h3>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: van der Wijst, M.G.P., de Vries, D.H., Brugge, H. et al., An integrative approach for building personalized gene regulatory networks for precision medicine. <i>Genome Med</i>, 2018, 10:96.</p>
+    <a href="https://doi.org/10.1186/s13073-018-0608-4">https://doi.org/10.1186/s13073-018-0608-4</a>
+</div>
 
-    </body>
+<div class="jc-entry">
+    <h3>Sep 9 2022</h3>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Heyduk, K., Moreno-Villena, J.J., Gilman, I. et al., The genetics of convergent evolution: insights from plant photosynthesis. <i>Nat Rev Genet</i>, 2019, 20:485–493.</p>
+    <a href="https://doi.org/10.1038/s41576-019-0107-5">https://doi.org/10.1038/s41576-019-0107-5</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 19 2022</h3>
+    <p>Presenter: Hua Zhang</p>
+    <p>Paper: Wang S, Teng D, Li X, et al., The evolution and diversification of oakleaf butterflies. <i>Cell</i>, 2022, 185(17):3138-3152.</p>
+    <a href="https://doi.org/10.1016/j.cell.2022.06.042">https://doi.org/10.1016/j.cell.2022.06.042</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 12 2022</h3>
+    <p>Presenter: Bingjie Zhu</p>
+    <p>Paper: Ganna A, Verweij K J H, Nivard M G, et al., Large-scale GWAS reveals insights into the genetic architecture of same-sex sexual behavior. <i>Science</i>, 2019, 365(6456).</p>
+    <a href="https://www.science.org/doi/10.1126/science.aat7693">https://www.science.org/doi/10.1126/science.aat7693</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 5 2022</h3>
+    <p>Presenter: Luyan Tian</p>
+    <p>Paper: Morrill K, Hekman J, Li X, et al., Ancestry-inclusive dog genomics challenges popular breed stereotypes. <i>Science</i>, 2022, 376(6592).</p>
+    <a href="https://www.science.org/doi/10.1126/science.abk063">https://www.science.org/doi/10.1126/science.abk063</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jul 22 2022</h3>
+    <p>Presenter: Xueting Hu</p>
+    <p>Paper: Hu, G., Feng, J., Xiang, X. et al., Two divergent haplotypes from a highly heterozygous lychee genome suggest independent domestication events for early and late-maturing cultivars. <i>Nature Genetics</i>, 2022, 54:73–83.</p>
+    <a href="https://doi.org/10.1038/s41588-021-00971-3">https://doi.org/10.1038/s41588-021-00971-3</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jul 22 2022</h3>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Hsieh P, Vollger M R, Dang V, et al., Adaptive archaic introgression of copy number variants and the discovery of previously unknown human genes. <i>Science</i>, 2019, 366(6463).</p>
+    <a href="https://www.science.org/doi/10.1126/science.aax208">https://www.science.org/doi/10.1126/science.aax208</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jul 8 2022</h3>
+    <p>Presenter: Xuebo Zhao</p>
+    <p>Paper: Shen, X., Song, S., Li, C. et al., Synonymous mutations in representative yeast genes are mostly strongly non-neutral. <i>Nature</i>, 2022, 606:725–731.</p>
+    <a href="https://doi.org/10.1038/s41586-022-04823-w">https://doi.org/10.1038/s41586-022-04823-w</a>
+</div>
+
+<div class="jc-entry">
+    <h3>May 13 2022</h3>
+    <p>Presenter: Xiaohan Yang</p>
+    <p>Paper: Abell N S, DeGorter M K, Gloudemans M J, et al., Multiple causal variants underlie genetic associations in humans. <i>Science</i>, 2022, 375(6586): 1247-1254.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abj5117">https://www.science.org/doi/10.1126/science.abj5117</a>
+</div>
+
+<div class="jc-entry">
+    <h3>May 6 2022</h3>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Bradley L, M. D M, Alexandre M, et al., The pan-genome effector-triggered immunity landscape of a host-pathogen interaction. <i>Science</i>, 2020, 367(6479): 763-768.</p>
+    <a href="https://www.science.org/doi/10.1126/science.aax0038">https://doi.org/10.1126/science.aax0038</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 30 2022</h3>
+    <p>Presenter: Daxing Xu</p>
+    <p>Paper: Gardner, E.J., Neville, M.D.C., Samocha, K.E. et al., Reduced reproductive success is associated with selective constraint on human genes. <i>Nature</i>, 2022, 603: 858–863.</p>
+    <a href="https://doi.org/10.1038/s41586-022-04549-9">https://doi.org/10.1038/s41586-022-04549-9</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 15 2022</h3>
+    <p>Presenter: Aoyue Bi</p>
+    <p>Paper: Chen, S. et al., A genome-wide mutational constraint map quantified from variation in 76,156 human genomes. <i>bioRxiv</i>, 2022.03.20.485034.</p>
+    <a href="https://doi.org/10.1101/2022.03.20.485034">https://doi.org/10.1101/2022.03.20.485034</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 08 2022</h3>
+    <p>Presenter: Yafei Guo</p>
+    <p>Paper: Sohail M, Vakhrusheva O A, Sul J H, et al., Negative selection in humans and fruit flies involves synergistic epistasis. <i>Science</i>, 2017, 356(6337): 539-542.</p>
+    <a href="https://www.science.org/doi/10.1126/science.aah5238">https://www.science.org/doi/10.1126/science.aah5238</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 01 2022</h3>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Santangelo J S, Ness R W, Cohan B, et al., Global urban environmental change drives adaptation in white clover. <i>Science</i>, 2022, 375(6586): 1275-1281.</p>
+    <a href="https://www.science.org/doi/10.1126/science.abk0989">https://www.science.org/doi/10.1126/science.abk0989</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Mar 25 2022</h3>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: Vaishnav E D, De Boer C G, Molinet J, et al., The evolution, evolvability and engineering of gene regulatory DNA. <i>Nature</i>, 2022, 603(7901): 455-463.</p>
+    <a href="https://doi.org/10.1038/s41586-022-04506-6">https://doi.org/10.1038/s41586-022-04506-6</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Mar 18 2022</h3>
+    <p>Presenter: Lipeng Kang</p>
+    <p>Paper: Powell D L, García-Olazábal M, Keegan M, et al., Natural hybridization reveals incompatible alleles that cause melanoma in swordtail fish. <i>Science</i>, 2020, 368(6492): 731-736.</p>
+    <a href="https://www.science.org/doi/abs/10.1126/science.aba5216">https://www.science.org/doi/abs/10.1126/science.aba5216</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Mar 04 2022</h3>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: He F, Wang W, Rutter W B, et al., Genomic variants affecting homoeologous gene expression dosage contribute to agronomic trait variation in allopolyploid wheat. <i>Nature Communications</i>, 2022, 13(1): 826.</p>
+    <a href="https://doi.org/10.1038/s41467-022-28453-y">https://doi.org/10.1038/s41467-022-28453-y</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Feb 25 2022</h3>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Monroe J G, Srikant T, Carbonell-Bejerano P, et al., Mutation bias reflects natural selection in Arabidopsis thaliana. <i>Nature</i>, 2022, 602(7895): 101-105.</p>
+    <a href="https://doi.org/10.1038/s41586-021-04269-6">https://doi.org/10.1038/s41586-021-04269-6</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jan 14 2022</h3>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Laricchia KM, Lake NJ, Watts NA, et al., Mitochondrial DNA variation across 56,434 individuals in gnomAD. <i>Genome Res</i>, 2022, 32(3): 569-582.</p>
+    <a href="https://doi.org/10.1101/2021.07.23.453510">https://doi.org/10.1101/2021.07.23.453510</a>
+</div>
+
+<!-- 2021 Journal Club Data Start -->
+<div class="jc-entry">
+    <h3>Dec 31 2021</h3>
+    <p>Presenter: Hangyuan Cheng</p>
+    <p>Paper: Zheng J, Guo N, Wagner A. Selection enhances protein evolvability by increasing mutational robustness and foldability. <i>Science</i>, 2020, 370(6521).</p>
+    <a href="https://www.science.org/doi/10.1126/science.abb5962">https://www.science.org/doi/10.1126/science.abb5962</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Dec 24 2021</h3>
+    <p>Presenter: Hua Zhang</p>
+    <p>Paper: Yonova-Doing E, Calabrese C, Gomez-Duran A, et al., An atlas of mitochondrial DNA genotype–phenotype associations in the UK Biobank. <i>Nature Genetics</i>, 2021, 53(7): 982-993.</p>
+    <a href="https://doi.org/10.1038/s41588-021-00868-1">https://doi.org/10.1038/s41588-021-00868-1</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Dec 10 2021</h3>
+    <p>Presenter: Xuebo Zhao</p>
+    <p>Paper: Bergström A, Stringer C, Hajdinjak M, et al., Origins of modern human ancestry. <i>Nature</i>, 2021, 590(7845): 229-237.</p>
+    <a href="https://doi.org/10.1038/s41586-021-03244-5">https://doi.org/10.1038/s41586-021-03244-5</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Dec 03 2021</h3>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Peter B M. Admixture, Population Structure, and F-Statistics. <i>Genetics</i>, 2016, 202(4): 1485-1501.</p>
+    <a href="https://doi.org/10.1534/genetics.115.183913">https://doi.org/10.1534/genetics.115.183913</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Nov 26 2021</h3>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Avsec Ž, Agarwal V, Visentin D, et al., Effective gene expression prediction from sequence by integrating long-range interactions. <i>Nature Methods</i>, 2021, 18(10): 1196-1203.</p>
+    <a href="https://doi.org/10.1038/s41592-021-01252-x">https://doi.org/10.1038/s41592-021-01252-x</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Nov 19 2021</h3>
+    <p>Presenter: Xiaohan Yang</p>
+    <p>Paper: Bonder M J, Smail C, Gloudemans M J, et al., Identification of rare and common regulatory variants in pluripotent cells using population-scale transcriptomics. <i>Nature Genetics</i>, 2021, 53(3): 313-321.</p>
+    <a href="https://doi.org/10.1038/s41588-021-00800-7">https://doi.org/10.1038/s41588-021-00800-7</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Nov 12 2021</h3>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Wong A K, Sealfon R S G, Theesfeld C L, et al., Decoding disease: from genomes to networks to phenotypes. <i>Nature Reviews Genetics</i>, 2021, 22(12): 774-790.</p>
+    <a href="https://doi.org/10.1038/s41576-021-00389-x">https://doi.org/10.1038/s41576-021-00389-x</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Nov 05 2021</h3>
+    <p>Presenter: Daxing Xu</p>
+    <p>Paper: Frazer J, Notin P, Dias M, et al., Disease variant prediction with deep generative models of evolutionary data. <i>Nature</i>, 2021, 599(7883): 91-95.</p>
+    <a href="https://doi.org/10.1038/s41586-021-04043-8">https://doi.org/10.1038/s41586-021-04043-8</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Oct 28 2021</h3>
+    <p>Presenter: Aoyue Bi</p>
+    <p>Paper: Li J T, Wang Q, Huang Yang M D, et al., Parallel subgenome structure and divergent expression evolution of allo-tetraploid common carp and goldfish. <i>Nature Genetics</i>, 2021, 53(10): 1493-1503.</p>
+    <a href="https://doi.org/10.1038/s41588-021-00933-9">https://doi.org/10.1038/s41588-021-00933-9</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Sep 30 2021</h3>
+    <p>Presenter: Ming Zhang</p>
+    <p>Paper: Harvey M G, Bravo G A, Claramunt S, et al., The evolution of a tropical biodiversity hotspot. <i>Science</i>, 2020, 370(6522): 1343-1348.</p>
+    <a href="https://www.science.org/doi/10.1126/science.aaz6970">https://www.science.org/doi/10.1126/science.aaz6970</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Sep 24 2021</h3>
+    <p>Presenter: Yafei Guo</p>
+    <p>Paper: Fuller Z L, Mocellin V J L, Morris L A, et al., Population genetics of the coral Acropora millepora: Toward genomic prediction of bleaching. <i>Science</i>, 2020, 369(6501): 4674.</p>
+    <a href="https://www.science.org/doi/10.1126/science.aba4674">https://www.science.org/doi/10.1126/science.aba4674</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Sep 17 2021</h3>
+    <p>Presenter: Beirui Niu</p>
+    <p>Paper: Stitzer M C, Anderson S N, Springer N M, et al., The genomic ecosystem of transposable elements in maize. <i>PLOS Genetics</i>, 2021, 17(10): e1009768.</p>
+    <a href="https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1009768">https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1009768</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Sep 03 2021</h3>
+    <p>Presenter: Xinyue Song</p>
+    <p>Paper: Elena K, Benjamin V, N. N B A, et al., Exploring whole-genome duplicate gene retention with complex genetic interaction analysis. <i>Science</i>, 2020, 368(6498): eaaz5667.</p>
+    <a href="https://doi.org/10.1126/science.aaz5667">https://doi.org/10.1126/science.aaz5667</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 27 2021</h3>
+    <p>Presenter: Xuebing Qiu</p>
+    <p>Paper: Wang S, Ore M J, Mikkelsen E K, et al., Signatures of mitonuclear coevolution in a warbler species complex. <i>Nature Communications</i>, 2021, 12(1): 4279.</p>
+    <a href="https://doi.org/10.1038/s41467-021-24586-8">https://doi.org/10.1038/s41467-021-24586-8</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 20 2021</h3>
+    <p>Presenter: Jun Xu</p>
+    <p>Paper: Sheng X, Guan Y, Ma Z, et al., Mapping the genetic architecture of human traits to cell types in the kidney identifies mechanisms of disease and potential treatments. <i>Nature Genetics</i>, 2021, 53(9): 1322-1333.</p>
+    <a href="https://doi.org/10.1038/s41588-021-00909-9">https://doi.org/10.1038/s41588-021-00909-9</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 13 2021</h3>
+    <p>Presenter: Yuqi Bai</p>
+    <p>Paper: Wang M, Li Z, Zhang Y, et al., An atlas of wheat epigenetic regulatory elements reveals subgenome divergence in the regulation of development and stress responses. <i>Plant Cell</i>, 2021, 33(4): 865-881.</p>
+    <a href="https://doi.org/10.1093/plcell/koab028">https://doi.org/10.1093/plcell/koab028</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Aug 06 2021</h3>
+    <p>Presenter: Kaibiao Zhang</p>
+    <p>Paper: Julca I, Ferrari C, Flores-Tornero M, et al., Comparative transcriptomic analysis reveals conserved programmes underpinning organogenesis and reproduction in land plants. <i>Nature Plants</i>, 2021, 7(8): 1143-1159.</p>
+    <a href="https://doi.org/10.1038/s41477-021-00958-2">https://doi.org/10.1038/s41477-021-00958-2</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jul 29 2021</h3>
+    <p>Presenter: Zhengyue Sha</p>
+    <p>Paper: Corces MR, Granja JM, Shams S, et al., The chromatin accessibility landscape of primary human cancers. <i>Science</i>, 2018, 362(6413): 1898.</p>
+    <a href="https://doi.org/10.1126/science.aav1898">https://doi.org/10.1126/science.aav1898</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jul 16 2021</h3>
+    <p>Presenter: Lipeng Kang</p>
+    <p>Paper: Yang H, Luan Y, Liu T, et al., A map of cis-regulatory elements and 3D genome structures in zebrafish. <i>Nature</i>, 2020, 588(7837): 337-343.</p>
+    <a href="https://doi.org/10.1038/s41586-020-2962-9">https://doi.org/10.1038/s41586-020-2962-9</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 23 2021</h3>
+    <p>Presenter: Jijin Zhang</p>
+    <p>Paper: Jay P, Chouteau M, Whibley A, et al., Mutation load at a mimicry supergene sheds new light on the evolution of inversion polymorphisms. <i>Nature Genetics</i>, 2021, 53(3): 288-293.</p>
+    <a href="https://doi.org/10.1038/s41588-020-00771-1">https://doi.org/10.1038/s41588-020-00771-1</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 09 2021</h3>
+    <p>Presenter: Zelin Niu</p>
+    <p>Paper: Groen S C, Ćalić I, Joly-Lopez Z, et al., The strength and pattern of natural selection on gene expression in rice. <i>Nature</i>, 2020, 578(7796): 572-576.</p>
+    <a href="https://doi.org/10.1038/s41586-020-1997-2">https://doi.org/10.1038/s41586-020-1997-2</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Apr 02 2021</h3>
+    <p>Presenter: Zhiliang Zhang</p>
+    <p>Paper: Peter E, A. A P, Qihui Z, et al., Haplotype-resolved diverse human genomes and integrated analysis of structural variation. <i>Science</i>, 2021, 372(6537): eabf7117.</p>
+    <a href="https://doi.org/10.1126/science.abf7117">https://doi.org/10.1126/science.abf7117</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Mar 12 2021</h3>
+    <p>Presenter: Hua Zhang</p>
+    <p>Paper: Lovell J T, MacQueen A H, Mamidi S, et al., Genomic mechanisms of climate adaptation in polyploid bioenergy switchgrass. <i>Nature</i>, 2021, 590(7846): 438-444.</p>
+    <a href="https://doi.org/10.1038/s41586-020-03127-1">https://doi.org/10.1038/s41586-020-03127-1</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Mar 05 2021</h3>
+    <p>Presenter: Xuebo Zhao</p>
+    <p>Paper: Anders B, Laurent F, Ryan S, et al., Origins and genetic legacy of prehistoric dogs. <i>Science</i>, 2020, 370(6516): 557-564.</p>
+    <a href="https://doi.org/10.1126/science.aba9572">https://doi.org/10.1126/science.aba9572</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jan 22 2021</h3>
+    <p>Presenter: Liping Jiang</p>
+    <p>Paper: Vuckovic D, Bao EL, Akbari P, et al., The Polygenic and Monogenic Basis of Blood Traits and Diseases. <i>Cell</i>, 2020, 182(5): 1214-1231.e11.</p>
+    <a href="https://doi.org/10.1016/j.cell.2020.08.008">https://doi.org/10.1016/j.cell.2020.08.008</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jan 15 2021</h3>
+    <p>Presenter: Jiayu Dong</p>
+    <p>Paper: Skov L, Coll Macià M, Sveinbjörnsson G, et al., The nature of Neanderthal introgression revealed by 27,566 Icelandic genomes. <i>Nature</i>, 2020, 582(7810): 78-83.</p>
+    <a href="https://doi.org/10.1038/s41586-020-2225-9">https://doi.org/10.1038/s41586-020-2225-9</a>
+</div>
+
+<div class="jc-entry">
+    <h3>Jan 08 2021</h3>
+    <p>Presenter: Song Xu</p>
+    <p>Paper: Fachal L, Aschard H, Beesley J, et al., Fine-mapping of 150 breast cancer risk regions identifies 191 likely target genes. <i>Nature Genetics</i>, 2020, 52(1): 56-73.</p>
+    <a href="https://doi.org/10.1038/s41588-019-0537-1">https://doi.org/10.1038/s41588-019-0537-1</a>
+</div>
+<!-- 2021 Data End -->
+
+        <!-- 2023, 2022... 的数据依次往下贴即可 -->
+
+    </div>
+
+    <div id="organized-content"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const rawData = document.getElementById('raw-data');
+    const entries = rawData.querySelectorAll('.jc-entry');
+    const yearTabs = document.getElementById('yearTabs');
+    const organizedContent = document.getElementById('organized-content');
+    
+    let yearsData = {};
+
+    // 遍历所有 entry 提取年份
+    entries.forEach(entry => {
+        const h3 = entry.querySelector('h3');
+        if (!h3) return;
+        
+        const dateText = h3.innerText;
+        const yearMatch = dateText.match(/\d{4}/);
+        
+        if (yearMatch) {
+            const year = yearMatch[0];
+            if (!yearsData[year]) yearsData[year] = [];
+            
+            // 提取内容
+            const presenter = entry.querySelector('p:nth-of-type(1)')?.innerText.replace('Presenter: ', '') || "Member";
+            const paperHtml = entry.querySelector('p:nth-of-type(2)')?.innerHTML.replace('Paper: ', '') || "Research Paper";
+            const doiHtml = entry.querySelector('a')?.outerHTML || "";
+
+            yearsData[year].push(`
+                <div class="jc-item">
+                    <div class="jc-date">${dateText}</div>
+                    <span class="jc-paper-title">${paperHtml}</span>
+                    <div class="jc-doi-wrapper">DOI: ${doiHtml}</div>
+                    <span class="jc-presenter">Presented by: ${presenter}</span>
+                </div>
+            `);
+        }
+    });
+
+    // 排序年份并生成 UI
+    const sortedYears = Object.keys(yearsData).sort((a, b) => b - a);
+    
+    sortedYears.forEach((year, index) => {
+        // 创建年份按钮
+        const btn = document.createElement('div');
+        btn.className = `year-tab ${index === 0 ? 'active' : ''}`;
+        btn.innerText = year;
+        btn.id = `btn-${year}`;
+        btn.onclick = () => switchYear(year);
+        yearTabs.appendChild(btn);
+
+        // 创建内容组
+        const group = document.createElement('div');
+        group.className = `jc-year-group ${index === 0 ? 'active' : ''}`;
+        group.id = `group-${year}`;
+        group.innerHTML = yearsData[year].join('');
+        organizedContent.appendChild(group);
+    });
+
+    // 切换函数
+    window.switchYear = function(year) {
+        document.querySelectorAll('.jc-year-group').forEach(g => g.classList.remove('active'));
+        document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById(`group-${year}`).classList.add('active');
+        document.getElementById(`btn-${year}`).classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+});
+</script>
