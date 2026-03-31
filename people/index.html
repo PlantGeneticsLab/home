@@ -5,345 +5,363 @@ description: "Plant Genetics Lab"
 active: about
 header-img: "img/2024group.JPG"
 ---
- 
+
 <style>
-.text{
-    width: 100%;
-    font-style: italic;
-    font-size: x-large;
-    text-align: center;
-}
-.box {
-    float: center;
-    width: 200px;
-    list-style: none;
-}
-.p{
-   font-size:small; 
-   text-align:justify;
-}
-.tb{
-    width: 100%;
-    float: left;
-}
-.trs{
-    height:200%;
-    vertical-align: top;
-}
+    /* 统一页面容器 */
+    .team-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
 
+    /* 标题样式 */
+    .section-title {
+        border-bottom: 2px solid #5a5a5a;
+        padding-bottom: 10px;
+        margin: 50px 0 30px;
+        text-align: center;
+        font-size: 2rem;
+        color: #333;
+        font-weight: bold;
+    }
 
+    /* 成员网格布局 */
+    .member-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px 20px; /* 行间距 40px，列间距 20px */
+        justify-content: flex-start;
+    }
 
+    /* 单个成员卡片 */
+    .member-card {
+        display: flex;
+        flex: 0 1 calc(50% - 10px); /* 电脑端一行两个 */
+        align-items: flex-start;
+        min-height: 180px;
+    }
+
+    /* 响应式：手机端一行一个 */
+    @media (max-width: 850px) {
+        .member-card {
+            flex: 0 1 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+    /* 照片样式：强制 1:1 比例 */
+    .member-photo {
+        width: 150px;
+        height: 180px; /* 略高的黄金比例，你也可以改成 150px 变正方形 */
+        object-fit: cover; 
+        border-radius: 6px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        margin-right: 20px;
+        flex-shrink: 0;
+        background-color: #f5f5f5;
+    }
+
+    /* 文字信息区 */
+    .member-info {
+        flex-grow: 1;
+    }
+
+    .member-name {
+        display: block;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 6px;
+        font-style: italic;
+    }
+
+    .member-desc {
+        font-size: 0.92rem;
+        line-height: 1.6; /* 核心：统一行高，解决间距不一 */
+        color: #444;
+        text-align: justify;
+        margin: 0;
+    }
+
+    /* 毕业年份小标签 */
+    .grad-year {
+        color: #888;
+        font-size: 0.85rem;
+        font-weight: normal;
+        font-style: normal;
+    }
 </style>
-<body>
-    <h1 style="font-size: x-large;text-align: center;"> Current Members</h1>
-    <br>
-    <table border="0" cellspacing="15" style = "border-collapse:separate; border-spacing:20px; ">
-        <tr class="trs">
-            <td style="width: 200px">
-                <img src="LF.jpg"  class="box">
-                
-            </td>
-            <td style="width: 500px">
-                <span class="text">Fei Lu</span>
-                <p class="p" >Group leader.<br>He is fascinated by genetics, evolution, & computer science. He is trying to pinpoint causative variants of agronomic traits in wheat using interdisciplinary approaches. </p>
-            </td>
-            <td > 
-                <img src="YCB.jpg"  class="box">
-                
-            </td>
-            <td style="width: 500px">
-                <span class="text">Chang-Bin Yin</span>
-                <p class="p">Research associate. <br>He has a background in quantitative genetics. He manages the field trials and is particularly interested in hybrid wheat breeding.
-            </td>
-        </tr>
-     
-        <tr class="trs">
-            <td><img src="WJ.jpg"  class="box">
-                
-            </td>
-            <td>
-                <span class="text">Jing Wang</span>
-                <p class="p">Research associate. <br>She has a background in molecular biology. She is developing high throughput genotyping, RNA-seq, and regulatory elements screening approaches.</p>
-            </td>
-            <td><img src="JM.jpg"  class="box">
-                
-            </td>
-            <td>
-                <span class="text">Meng Jin</span>
-                <p class="p">Engineer. <br>She is mainly responsible for the financial, administrative, and student management work of the research group, as well as some molecular biology experiments. </p>
-            </td>
-        </tr>
-     
-        <tr class="trs">
 
-            
-
-          <td>
-                <img class="box" src="QXB.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Xue-Bing Qiu</span>
-                <p class="p">Ph.D. student. <br>She is working on the plastid evolution of wheat. </p>
-            </td>
-
-            <td>
-                <img class="box" src="SXY.jpg"  >
-                
-            </td>
-            <td>
-                <span class="text">Xin-Yue Song</span>
-                <p class="p">Ph.D. student. <br>She is working on the evolution of wheat metabolites. </p>
-            </td>
-             
-        </tr>
-
-        <tr class="trs">
-             <td>
-                <img src="ZJJ.jpg"  class="box">
-                
-            </td>
-            <td>
-                <span class="text">Ji-Jin Zhang</span>
-                <p class="p">Ph.D. student. <br>He majored in agriculture as an undergraduate. He is working on the phenotypic effect of structural variation.</p>
-            </td>
-
-
-            <td>
-                <img src="XS.jpg"  class="box">
-               
-            </td>
-            <td>
-                <span class="text">Song Xu</span>
-                <p class="p">Ph.D. student. <br>He loves statistics and would like to machine learn (ML) whatever can be learned.</p>
-            </td>
-
-        </tr>
-
-        <tr class="trs">
-            <td>
-                <img src="DJY.jpg"  class="box">
-                
-            </td>
-            <td>
-                <span class="text">Jia-Yu Dong</span>
-                <p class="p">Ph.D. student. <br>She is working on her Ph.D. project relating to Triticeae species.</p>
-            </td>
-        
-         
-
-            <td>
-                <img src="JLP.png"  class="box">
-                
-            </td>
-            <td>
-                <span class="text">Li-Ping Jiang</span>
-                <p class="p">Ph.D. student. <br>She is working on coevolution between rice and rice blast fungus for more effective resistance breeding.</p>
-            </td>
-            
-        </tr>
-
-        <tr class="trs">
-            <td>
-                <img class="box" src="QY.png"  >              
-            </td>
-            <td>
-                <span class="text">You Qing</span>
-                <p class="p">Ph.D. student. <br>His research focuses on the genetic mechanism of maize flowering time </p>
-            </td>
-         
-               <td>
-                <img class="box" src="NZL.png"  >               
-            </td>
-            <td>
-                <span class="text">Ze-Lin Niu</span>
-                <p class="p">Ph.D. student. <br>He is passionate about wheat's genetic analysis from the metabolomics perspective.   </p>
-            </td>
-
-        </tr>
-
-        <tr class="trs">
-             <td>
-                <img class="box" src="ZBJ.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Bing-Jie Zhu</span>
-                <p class="p">Ph.D. student. <br>She is working on the polyploidization of wheat. </p>
-            </td>
-              
-
-           <td>
-                <img class="box" src="NBR.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Bei-Rui Niu</span>
-                <p class="p">Ph.D. student. <br>She is busy taking foundation courses for future research work. </p>
-            </td>
-        </tr>
-
-        <tr class="trs">
-          <td>
-                <img class="box" src="YJC.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Jing-chen Yuan</span>
-                <p class="p">Ph.D. student.<br>She is engaged in evolutionary studies on the mechanisms of salinity tolerance in grasses. </p>
-            </td> 
-           
-          <td>
-                <img class="box" src="HYQ.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Ya-Qin Hu</span>
-                <p class="p">Postgraduate student.<br>She is working on the convergent evolution of seed size. </p>
-            </td>
-            
-        </tr>
-
-    <tr class="trs">
-           <td>
-                <img class="box" src="ZD.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Zheng Da</span>
-                <p class="p">Postgraduate student.<be> He is currently working on the construction of the wheat database. </p>
-            </td>
-            
-
-            <td>
-                <img class="box" src="LA.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Ao Li</span>
-                <p class="p">Postgraduate student.<br>She is researching the environmental adaptability of wheat.</p>
-            </td>
-        </tr>
-
-     
-  <tr class="trs">
-          <td>
-                <img class="box" src="CSJ.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Shu-jin Chen</span>
-                <p class="p">Postgraduate student.<be> She is a postgraduate first-year student and is studying statistics and programming now. </p>
-            </td> 
-   
-            <td>
-                <img class="box" src="XSY.jpg"  >              
-            </td>
-            <td>
-                <span class="text">Shu-yi Xing</span>
-                <p class="p">Postgraduate student.<be> She is a postgraduate first-year student and is studying courses related to genetics now. </p>
-            </td> 
-
-        </tr>
-
-     
-    </table>
-
+<div class="team-section">
+    <h1 class="section-title">Current Members</h1>
     
-    <br>
-    <h1 style="font-size: x-large;text-align: center;"> Former Members</h1>
-    <table border="0" cellspacing="15" style = "border-collapse:separate; border-spacing:20px; ">
-        <tr class="trs">
-            <td>
-                <img src="ZXB.jpg"  class="box">
-                            
-            </td>
-            <td>
-                <span class="text">Xue-Bo Zhao</span>    
-                <p class="p"> Graduated student.(2017-2022) <br>She is interested in evolution biology. She was investigated how hybridization,  migration, and breeding shaped the unique evolutionary path of bread wheat. She graduated in 2022.</p>
-            </td>
+    <div class="member-grid">
+        <!-- 1. Fei Lu -->
+        <div class="member-card">
+            <img src="LF.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Fei Lu</span>
+                <p class="member-desc">Group leader. He is fascinated by genetics, evolution, & computer science. He is trying to pinpoint causative variants of agronomic traits in wheat using interdisciplinary approaches.</p>
+            </div>
+        </div>
 
-        </tr>
-        <tr class="trs">
-            <td>
-                <img src="ZM.jpg"  class="box">
-               
-            </td>
-            <td>
-                <span class="text">Ming Zhang</span>
-                <p class="p">Graduated student.(2018-2021) <br>She worked on the variation of recombination rate between bread wheat and its wild relatives. She graduated in 2022.</p>
-            </td>
-        </tr>
-        <tr class="trs">
-            <td>
-                <img src="YXH.jpg"  class="box">
-               
-            </td>
-            <td>
-                <span class="text">Xiao-Han Yang</span>
-                <p class="p">Graduated student.(2019-2022) <br>She used to work on the phenotypic effect of rare deleterious variants.</p>
-            </td>
-        </tr>
-     
-     <tr class="trs">
-       <td>
-                <img src="BAY.jpg"  class="box">
-       </td>
-            <td>
-                <span class="text">Ao-Yue Bi</span>
-                <p class="p">Graduated student.(2017-2022)<br> She used to work on the stress response of turfgrass. Now She is doing postdoctoral research at Zhejiang University</p>
-            </td>
-        
-     </tr>
+        <!-- 2. Chang-Bin Yin -->
+        <div class="member-card">
+            <img src="YCB.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Chang-Bin Yin</span>
+                <p class="member-desc">Research associate. He has a background in quantitative genetics. He manages the field trials and is particularly interested in hybrid wheat breeding.</p>
+            </div>
+        </div>
 
-        
-     <tr class="trs">
-       <td>
-                <img src="XDX.jpg"  class="box">
-       </td>
-            <td>
-                <span class="text">Da-xing Xu</span>
-                <p class="p">Graduated student.(2017-2023)<br> He used to work on the effects of introgression from wild relatives on mutation load in the wheat genome.</p>
-            </td>
-     </tr>
+        <!-- 3. Jing Wang -->
+        <div class="member-card">
+            <img src="WJ.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Jing Wang</span>
+                <p class="member-desc">Research associate. She has a background in molecular biology. She is developing high throughput genotyping, RNA-seq, and regulatory elements screening approaches.</p>
+            </div>
+        </div>
 
-     <tr class="trs">
-       <td>
-                <img src="ZZL.png"  class="box">
-       </td>
-            <td>
-                <span class="text">Zhi-liang Zhang</span>
-                <p class="p">Graduated student.(2019-2024)<br> He used to work on the highly complex genome of sugarcane. He is now working on structural variation in the "less complex" genome of bread wheat.</p>
-            </td>
-     </tr>
+        <!-- 4. Meng Jin -->
+        <div class="member-card">
+            <img src="JM.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Meng Jin</span>
+                <p class="member-desc">Engineer. She is mainly responsible for the financial, administrative, and student management work of the research group, as well as some molecular biology experiments.</p>
+            </div>
+        </div>
 
-     <tr class="trs">
-       <td>
-                <img src="KLP.jpg"  class="box">
-       </td>
-            <td>
-                <span class="text">Li-peng Kang</span>
-                <p class="p">Graduated student.(2018-2024)<br> He used to work on the genomic perspective and studying the evolution of the Triticeae tribe.</p>
-            </td>
-     </tr>
+        <!-- 5. Xue-Bing Qiu -->
+        <div class="member-card">
+            <img src="QXB.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Xue-Bing Qiu</span>
+                <p class="member-desc">Ph.D. student. She is working on the plastid evolution of wheat.</p>
+            </div>
+        </div>
 
-      <tr class="trs">
-       <td>
-                <img src="GYF.png"  class="box">
-       </td>
-            <td>
-                <span class="text">Ya-fei Guo</span>
-                <p class="p">Graduated student.(2018-2024)<br> She used to work on the environmental adaptation of wheat.</p>
-            </td>
-     </tr>
+        <!-- 6. Xin-Yue Song -->
+        <div class="member-card">
+            <img src="SXY.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Xin-Yue Song</span>
+                <p class="member-desc">Ph.D. student. She is working on the evolution of wheat metabolites.</p>
+            </div>
+        </div>
 
-     <tr class="trs">
-       <td>
-                <img src="XJ.png"  class="box">
-       </td>
-            <td>
-                <span class="text">Jun Xu</span>
-                <p class="p">Graduated student.(2018-2025)<br> She used to develop RNA-seq analysis pipelines and investigate the genetic architecture of gene expression in wheat.</p>
-            </td>
-     </tr>
-    </table>
+        <!-- 7. Ji-Jin Zhang -->
+        <div class="member-card">
+            <img src="ZJJ.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ji-Jin Zhang</span>
+                <p class="member-desc">Ph.D. student. He majored in agriculture as an undergraduate. He is working on the phenotypic effect of structural variation.</p>
+            </div>
+        </div>
 
-</body>
+        <!-- 8. Song Xu -->
+        <div class="member-card">
+            <img src="XS.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Song Xu</span>
+                <p class="member-desc">Ph.D. student. He loves statistics and would like to machine learn (ML) whatever can be learned.</p>
+            </div>
+        </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
+        <!-- 9. Jia-Yu Dong -->
+        <div class="member-card">
+            <img src="DJY.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Jia-Yu Dong</span>
+                <p class="member-desc">Ph.D. student. She is working on her Ph.D. project relating to Triticeae species.</p>
+            </div>
+        </div>
+
+        <!-- 10. Li-Ping Jiang -->
+        <div class="member-card">
+            <img src="JLP.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Li-Ping Jiang</span>
+                <p class="member-desc">Ph.D. student. She is working on coevolution between rice and rice blast fungus for more effective resistance breeding.</p>
+            </div>
+        </div>
+
+        <!-- 11. You Qing -->
+        <div class="member-card">
+            <img src="QY.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">You Qing</span>
+                <p class="member-desc">Ph.D. student. His research focuses on the genetic mechanism of maize flowering time.</p>
+            </div>
+        </div>
+
+        <!-- 12. Ze-Lin Niu -->
+        <div class="member-card">
+            <img src="NZL.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ze-Lin Niu</span>
+                <p class="member-desc">Ph.D. student. He is passionate about wheat's genetic analysis from the metabolomics perspective.</p>
+            </div>
+        </div>
+
+        <!-- 13. Bing-Jie Zhu -->
+        <div class="member-card">
+            <img src="ZBJ.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Bing-Jie Zhu</span>
+                <p class="member-desc">Ph.D. student. She is working on the polyploidization of wheat.</p>
+            </div>
+        </div>
+
+        <!-- 14. Bei-Rui Niu -->
+        <div class="member-card">
+            <img src="NBR.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Bei-Rui Niu</span>
+                <p class="member-desc">Ph.D. student. She is busy taking foundation courses for future research work.</p>
+            </div>
+        </div>
+
+        <!-- 15. Jing-chen Yuan -->
+        <div class="member-card">
+            <img src="YJC.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Jing-chen Yuan</span>
+                <p class="member-desc">Ph.D. student. She is engaged in evolutionary studies on the mechanisms of salinity tolerance in grasses.</p>
+            </div>
+        </div>
+
+        <!-- 16. Ya-Qin Hu -->
+        <div class="member-card">
+            <img src="HYQ.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ya-Qin Hu</span>
+                <p class="member-desc">Postgraduate student. She is working on the convergent evolution of seed size.</p>
+            </div>
+        </div>
+
+        <!-- 17. Zheng Da -->
+        <div class="member-card">
+            <img src="ZD.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Zheng Da</span>
+                <p class="member-desc">Postgraduate student. He is currently working on the construction of the wheat database.</p>
+            </div>
+        </div>
+
+        <!-- 18. Ao Li -->
+        <div class="member-card">
+            <img src="LA.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ao Li</span>
+                <p class="member-desc">Postgraduate student. She is researching the environmental adaptability of wheat.</p>
+            </div>
+        </div>
+
+        <!-- 19. Shu-jin Chen -->
+        <div class="member-card">
+            <img src="CSJ.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Shu-jin Chen</span>
+                <p class="member-desc">Postgraduate student. She is a postgraduate first-year student and is studying statistics and programming now.</p>
+            </div>
+        </div>
+
+        <!-- 20. Shu-yi Xing -->
+        <div class="member-card">
+            <img src="XSY.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Shu-yi Xing</span>
+                <p class="member-desc">Postgraduate student. She is a postgraduate first-year student and is studying courses related to genetics now.</p>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="section-title">Former Members</h1>
+    
+    <div class="member-grid">
+        <!-- 1. Xue-Bo Zhao -->
+        <div class="member-card">
+            <img src="ZXB.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Xue-Bo Zhao <span class="grad-year">(2017-2022)</span></span>
+                <p class="member-desc">She is interested in evolution biology. She investigated how hybridization, migration, and breeding shaped the unique evolutionary path of bread wheat. She graduated in 2022.</p>
+            </div>
+        </div>
+
+        <!-- 2. Ming Zhang -->
+        <div class="member-card">
+            <img src="ZM.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ming Zhang <span class="grad-year">(2018-2021)</span></span>
+                <p class="member-desc">She worked on the variation of recombination rate between bread wheat and its wild relatives. She graduated in 2022.</p>
+            </div>
+        </div>
+
+        <!-- 3. Xiao-Han Yang -->
+        <div class="member-card">
+            <img src="YXH.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Xiao-Han Yang <span class="grad-year">(2019-2022)</span></span>
+                <p class="member-desc">She used to work on the phenotypic effect of rare deleterious variants.</p>
+            </div>
+        </div>
+
+        <!-- 4. Ao-Yue Bi -->
+        <div class="member-card">
+            <img src="BAY.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ao-Yue Bi <span class="grad-year">(2017-2022)</span></span>
+                <p class="member-desc">She used to work on the stress response of turfgrass. Now she is doing postdoctoral research at Zhejiang University.</p>
+            </div>
+        </div>
+
+        <!-- 5. Da-xing Xu -->
+        <div class="member-card">
+            <img src="XDX.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Da-xing Xu <span class="grad-year">(2017-2023)</span></span>
+                <p class="member-desc">He used to work on the effects of introgression from wild relatives on mutation load in the wheat genome.</p>
+            </div>
+        </div>
+
+        <!-- 6. Zhi-liang Zhang -->
+        <div class="member-card">
+            <img src="ZZL.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Zhi-liang Zhang <span class="grad-year">(2019-2024)</span></span>
+                <p class="member-desc">He used to work on the highly complex genome of sugarcane. He is now working on structural variation in the "less complex" genome of bread wheat.</p>
+            </div>
+        </div>
+
+        <!-- 7. Li-peng Kang -->
+        <div class="member-card">
+            <img src="KLP.jpg" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Li-peng Kang <span class="grad-year">(2018-2024)</span></span>
+                <p class="member-desc">He used to work on the genomic perspective and studying the evolution of the Triticeae tribe.</p>
+            </div>
+        </div>
+
+        <!-- 8. Ya-fei Guo -->
+        <div class="member-card">
+            <img src="GYF.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Ya-fei Guo <span class="grad-year">(2018-2024)</span></span>
+                <p class="member-desc">She used to work on the environmental adaptation of wheat.</p>
+            </div>
+        </div>
+
+        <!-- 9. Jun Xu -->
+        <div class="member-card">
+            <img src="XJ.png" class="member-photo">
+            <div class="member-info">
+                <span class="member-name">Jun Xu <span class="grad-year">(2018-2025)</span></span>
+                <p class="member-desc">She used to develop RNA-seq analysis pipelines and investigate the genetic architecture of gene expression in wheat.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br><br>
